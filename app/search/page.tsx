@@ -21,6 +21,11 @@ export default async function SearchPage({
   const products = await getProducts({ sortKey, reverse, query: searchValue });
   const resultsText = products.length > 1 ? 'results' : 'result';
 
+  // The component then returns some JSX. If a searchValue is provided, it displays a
+  // paragraph indicating either no matching products were found or how many results
+  // were found for the search. If there are products, it displays them in a Grid with
+  // the ProductGridItems component. If there are no products or no search value, those
+  // sections simply render nothing (null).
   return (
     <>
       {searchValue ? (

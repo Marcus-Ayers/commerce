@@ -7,6 +7,12 @@ import ProductGridItems from 'components/layout/product-grid-items';
 
 export const runtime = 'edge';
 
+// The generateMetadata function is an asynchronous function that generates
+// metadata for SEO purposes. It takes the collection parameter from the URL,
+// fetches the collection data from Shopify, and generates an object containing
+// SEO-related properties like the title, description, and open graph data. If no
+// collection is found, it returns a notFound() function, which is likely to
+// trigger a 404 page.
 export async function generateMetadata({
   params
 }: {
@@ -32,6 +38,10 @@ export async function generateMetadata({
   };
 }
 
+// The CategoryPage is a functional React component that receives the collection
+// parameter from the URL and fetches the products within this collection from Shopify.
+// If there are no products in the collection, it displays a message. If there are products,
+// it displays them in a Grid with the ProductGridItems component.
 export default async function CategoryPage({ params }: { params: { collection: string } }) {
   const products = await getCollectionProducts(params.collection);
 

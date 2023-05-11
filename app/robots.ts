@@ -13,3 +13,5 @@ export default function robots() {
     host: baseUrl
   };
 }
+//The robots() function is likely being used somewhere else
+// in your application to generate a robots.txt file dynamically based on these values.

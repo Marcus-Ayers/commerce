@@ -5,6 +5,9 @@ import './globals.css';
 
 const { TWITTER_CREATOR, TWITTER_SITE, SITE_NAME } = process.env;
 
+//The metadata object sets default metadata for your site, including
+// the title template, robots meta tag (allowing index and follow by search engines),
+// and optional Twitter card metadata (if the TWITTER_CREATOR and TWITTER_SITE variables are set).
 export const metadata = {
   title: {
     default: SITE_NAME,

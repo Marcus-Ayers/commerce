@@ -4,6 +4,9 @@ import FilterList from 'components/layout/search/filter';
 import { sorting } from 'lib/constants';
 import { Suspense } from 'react';
 
+//SearchLayout is a functional React component that takes children as a prop.
+// children here refers to any elements or components that will be nested inside
+// the SearchLayout component when it's used.
 export default function SearchLayout({ children }: { children: React.ReactNode }) {
   return (
     <Suspense>
