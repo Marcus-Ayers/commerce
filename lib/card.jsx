@@ -1,8 +1,8 @@
 'use client';
-import React, { useRef, useState } from 'react';
+import { animated, useSpring } from '@react-spring/three';
+import { useGLTF, useHelper } from '@react-three/drei';
 import { Canvas, useFrame } from '@react-three/fiber';
-import { useSpring, animated } from '@react-spring/three';
-import { useHelper, useGLTF } from '@react-three/drei';
+import { useRef, useState } from 'react';
 import { DirectionalLightHelper } from 'three';
 
 const Model2 = ({ modelPath, initialRotation }) => {
@@ -23,27 +23,33 @@ const SnowboardFlip = ({ position, model, rotationn }) => {
   const cubeRef = useRef();
   const [active, setActive] = useState(false);
   const [hovered, setHovered] = useState(false);
+  const randomRotationFactor = useRef(Math.random() * 0.002).current;
+  const randomPositionFactor = useRef(Math.random() * 0.07).current;
 
   const { rotation } = useSpring({
     rotation: active
       ? [0, Math.PI, 0]
       : hovered
-      ? [0, 0.2, 0] // Tilt slightly when hovered
-      : [0, 0, 0],
+      ? [0, 0.2, 0] // use the rotation value when hovered
+      : [0, 0, 0], // use the initial rotation value when not hovered and not active
     config: { mass: 5, tension: 200, friction: 50 }
   });
 
-  useFrame(() => {
+  useFrame((state, delta) => {
     if (cubeRef.current) {
-      cubeRef.current.rotation.y += 0.01;
+      cubeRef.current.rotation.y += randomRotationFactor; // This will continually rotate the object at random speed
+      cubeRef.current.position.y =
+        randomPositionFactor * Math.sin(state.clock.elapsedTime * 2) + position[1]; // This will create the bobbing up and down effect at random rate
     }
   });
 
   return (
     <>
       <directionalLight position={[0, 0, 3]} intensity={0.2} />
+      <ambientLight intensity={0.1} />
 
       <animated.mesh
+        ref={cubeRef}
         rotation={rotation}
         onClick={() => setActive(!active)}
         onPointerOver={() => setHovered(true)}
@@ -52,6 +58,8 @@ const SnowboardFlip = ({ position, model, rotationn }) => {
       >
         <Model2 modelPath={model} initialRotation={rotationn} />
         <meshBasicMaterial />
+        <boxBufferGeometry attach="geometry" args={[1, 5, 1]} />
+        <meshBasicMaterial attach="material" transparent opacity={0} />{' '}
       </animated.mesh>
     </>
   );
