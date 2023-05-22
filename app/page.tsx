@@ -2,7 +2,6 @@ import { Carousel } from 'components/carousel';
 import { ThreeItemGrid } from 'components/grid/three-items';
 import Footer from 'components/layout/footer';
 import { Suspense } from 'react';
-
 //The 'edge' runtime in Vercel represents a Serverless Function that is executed
 // at the Edge network, meaning it's closer to the user and therefore has reduced latency.
 export const runtime = 'edge';
