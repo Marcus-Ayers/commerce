@@ -6,22 +6,33 @@ import 'animate.css';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Image from 'next/image';
-import { Suspense, useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import Page2 from '../lib/card';
-// import CarouselNew from '../lib/card';
 import { useScrollAnimation, useScrollAnimationTwo } from './Animations';
-import { CarouselNew } from './carouselNew';
 
 gsap.registerPlugin(ScrollTrigger);
 
 export const PageContent = (props) => {
-  //   const [products, setProducts] = useState(null);
+  useEffect(() => {
+    async function fetchProducts() {
+      const response = await fetch(`/api/products`);
+      const products = await response.json();
+      console.log(products[1]);
+    }
 
-  //  useEffect(() => {
-  //   Carousel()
-  //     .then((products) => setProducts(products))
-  //     .catch((error) => console.error('Failed to fetch products:', error));
-  // }, []);
+    fetchProducts();
+  }, []);
+
+  useEffect(() => {
+    async function fetchCollectionProducts() {
+      const handle = 'automated-collection';
+      const response2 = await fetch(`/api/collection-products?handle=${handle}`);
+      const products2 = await response2.json();
+      console.log(products2);
+    }
+
+    fetchCollectionProducts();
+  }, []);
 
   const myElement1 = useRef(null);
   const myElement2 = useRef(null);
@@ -56,6 +67,7 @@ export const PageContent = (props) => {
       });
     }, 500);
   }, []);
+
   return (
     <Html className="left-[-600px] top-[-200px] w-screen">
       <div className="flex flex-col ">
@@ -131,9 +143,9 @@ export const PageContent = (props) => {
           <Page2 />
         </div>
         <div className="mt-">
-          <Suspense>
+          {/* <Suspense>
             <CarouselNew />
-          </Suspense>
+          </Suspense> */}
         </div>
         <div ref={ref2} className="invisible">
           <p className="text-md mt-20 italic text-zinc-400">
