@@ -7,3 +7,24 @@
     clip-path: inset(0.6px);
   }
 }
+.embla {
+  overflow: hidden;
+  margin-left: -110px;
+}
+
+.embla__viewport {
+  overflow: hidden;
+  width: 100%;
+}
+
+.embla__container {
+  display: flex;
+  will-change: transform;
+}
+
+.embla__slide {
+  position: relative;
+  flex: 0 0 auto;
+  width: 70%;
+  counter-increment: index;
+}

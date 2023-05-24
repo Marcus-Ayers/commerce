@@ -1,5 +1,4 @@
 'use client';
-import { getCollectionProducts } from 'lib/shopify';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
@@ -7,12 +6,23 @@ import { useEffect, useState } from 'react';
 export function CarouselNew() {
   const [products, setProducts] = useState(null);
 
+  // useEffect(() => {
+  //   const fetchProducts = async () => {
+  //     // Collections that start with `hidden-*` are hidden from the search page.
+  //     const fetchedProducts = await getCollectionProducts('automated-collection');
+  //     if (fetchedProducts?.length) setProducts(fetchedProducts);
+  //   };
+
+  //   fetchProducts();
+  // }, []);
+
   useEffect(() => {
-    const fetchProducts = async () => {
-      // Collections that start with `hidden-*` are hidden from the search page.
-      const fetchedProducts = await getCollectionProducts('automated-collection');
-      if (fetchedProducts?.length) setProducts(fetchedProducts);
-    };
+    async function fetchProducts() {
+      const handle = 'automated-collection';
+      const response2 = await fetch(`/api/collection-products?handle=${handle}`);
+      const products2 = await response2.json();
+      setProducts(products2);
+    }
 
     fetchProducts();
   }, []);

@@ -6,18 +6,23 @@ import 'animate.css';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Image from 'next/image';
-import { useEffect, useRef } from 'react';
+import Link from 'next/link';
+import { Suspense, useEffect, useRef, useState } from 'react';
 import Page2 from '../lib/card';
+import { CarouselNew } from '../lib/carouselNew';
+import EmblaCarousel from '../lib/imageCarousel';
 import { useScrollAnimation, useScrollAnimationTwo } from './Animations';
 
 gsap.registerPlugin(ScrollTrigger);
 
 export const PageContent = (props) => {
+  const [products, setProducts] = useState('title');
+
   useEffect(() => {
     async function fetchProducts() {
       const response = await fetch(`/api/products`);
-      const products = await response.json();
-      console.log(products[1]);
+      const productsData = await response.json();
+      setProducts(productsData);
     }
 
     fetchProducts();
@@ -28,7 +33,6 @@ export const PageContent = (props) => {
       const handle = 'automated-collection';
       const response2 = await fetch(`/api/collection-products?handle=${handle}`);
       const products2 = await response2.json();
-      console.log(products2);
     }
 
     fetchCollectionProducts();
@@ -50,6 +54,9 @@ export const PageContent = (props) => {
   const { ref: ref10 } = useScrollAnimationTwo();
   const { ref: ref11 } = useScrollAnimation();
   const { ref: ref12 } = useScrollAnimation();
+  const OPTIONS = { inViewThreshold: 0, dragFree: true, loop: false };
+  const SLIDE_COUNT = 5;
+  const SLIDES = Array.from(Array(SLIDE_COUNT).keys());
 
   useEffect(() => {
     setTimeout(() => {
@@ -72,7 +79,7 @@ export const PageContent = (props) => {
     <Html className="left-[-600px] top-[-200px] w-screen">
       <div className="flex flex-col ">
         <div className="-mb-10 w-full">
-          <h1 className="text-[130px] font-semibold text-white " ref={myElement1}>
+          <h1 className="invisible text-[130px] font-semibold text-white" ref={myElement1}>
             WE WORK
           </h1>
         </div>
@@ -100,6 +107,7 @@ export const PageContent = (props) => {
             </span>
           </h2>
         </div>
+
         <div className="">
           <Player
             className=""
@@ -143,9 +151,9 @@ export const PageContent = (props) => {
           <Page2 />
         </div>
         <div className="mt-">
-          {/* <Suspense>
+          <Suspense>
             <CarouselNew />
-          </Suspense> */}
+          </Suspense>
         </div>
         <div ref={ref2} className="invisible">
           <p className="text-md mt-20 italic text-zinc-400">
@@ -222,11 +230,6 @@ export const PageContent = (props) => {
             </h1>
           </div>
         </div>
-        {/* <div className="mt-20">
-          <Suspense>
-            <CarouselNew />
-          </Suspense>
-        </div> */}
         <div>
           <h2 className="text-md mt-20 italic text-zinc-400">
             LEARN MORE{' '}
@@ -284,10 +287,24 @@ export const PageContent = (props) => {
           </h2>
         </div>
         <div className="flex justify-around">
-          <div className="invisible flex flex-col" ref={ref7}>
-            <div className="flex flex-col">
-              <Image alt="white" src="/images/white.jpeg" width={450} height={450}></Image>
-              <h1 className="-mt-5 text-5xl text-gray-200 ">DIGITAL</h1>
+          <div className="invisible flex max-w-sm flex-col" ref={ref7}>
+            <div className="group flex flex-col">
+              <Link
+                key={`${products?.[4].handle}`}
+                href={`/product/${products?.[4].handle}`}
+                className=""
+              >
+                <Image
+                  alt="white"
+                  src={products?.[4].featuredImage?.url}
+                  width={350}
+                  height={350}
+                  className="group"
+                ></Image>
+                <h1 className="-mt-5 text-5xl text-gray-200 duration-500 group-hover:text-red-600 ">
+                  {products?.[4].title}
+                </h1>
+              </Link>
             </div>
             <div className="max-w-sm">
               <p className=" mt-20 text-white">
@@ -296,17 +313,32 @@ export const PageContent = (props) => {
               </p>
             </div>
           </div>
-          <div className="invisible mr-36 mt-20 flex flex-col" ref={ref8}>
-            <div className="flex flex-col">
-              <Image alt="white" src="/images/white.jpeg" width={450} height={450}></Image>
-              <h1 className="-mt-5 text-5xl text-gray-200 ">BRANDING</h1>
-            </div>
-            <div className="max-w-sm">
-              <p className=" mt-20 text-white">
-                WE DEVELOP DISRUPTIVE BRANDS AND HELP COMPANIES RE-DISCOVER THEIR IDENTITY. WE HELP
-                OUR CLIENTS REALIZE THEIR FULL POTENTIAL AND SET THEM APART FROM THEIR COMPETITION.
-              </p>
-            </div>
+          <div className="invisible mr-36 mt-20 flex max-w-sm flex-col" ref={ref8}>
+            <Link
+              key={`${products?.[3].handle}`}
+              href={`/product/${products?.[3].handle}`}
+              className="group"
+            >
+              <div className="flex flex-col">
+                <Image
+                  alt="white"
+                  src={products?.[3].featuredImage?.url}
+                  width={350}
+                  height={350}
+                  className="group"
+                ></Image>
+                <h1 className="-mt-5 text-5xl text-gray-200 duration-500 group-hover:text-red-600 ">
+                  {products?.[3].title}
+                </h1>{' '}
+              </div>
+              <div className="max-w-sm">
+                <p className=" mt-20 text-white">
+                  WE DEVELOP DISRUPTIVE BRANDS AND HELP COMPANIES RE-DISCOVER THEIR IDENTITY. WE
+                  HELP OUR CLIENTS REALIZE THEIR FULL POTENTIAL AND SET THEM APART FROM THEIR
+                  COMPETITION.
+                </p>
+              </div>
+            </Link>
           </div>
         </div>
         <div className="flex-flex-col">
@@ -322,55 +354,52 @@ export const PageContent = (props) => {
           </p>
           <p className="mt-20 text-white">-Whats new?</p>
         </div>
-        <div className="ml-36 mt-20 flex flex-col">
-          <p className="text-white">5/13/23</p>
-          <h1
-            ref={ref6}
-            className="transition-color invisible z-10 mt-5 cursor-pointer text-8xl font-semibold text-white duration-300 hover:text-red-500"
-          >
-            SITE OF THE
-            <br /> MONTH AWARD
-            <br /> BY ORPETRON
-          </h1>
-          <Image
-            alt="marble"
-            className="-mt-36 ml-48"
-            src="/images/marble.jpeg"
-            width={600}
-            height={600}
-          ></Image>
-        </div>
+        <section className="sandbox__carousel invisible " ref={ref6}>
+          <EmblaCarousel slides={SLIDES} options={OPTIONS} />
+        </section>
         <div>
           <p className="mt-36 text-white">5/13/23</p>
         </div>
         <div className="mt-20 flex">
-          <div className="flex flex-col">
-            <div className="flex flex-col">
-              <h1 className="transition-color z-10 -mt-5 max-w-md cursor-pointer text-4xl text-gray-200 duration-500 hover:text-red-600">
-                5TH NOMINATION FOR STUDIO OF THE YEAR
-              </h1>
-              <Image
-                alt="white"
-                src="/images/marble.jpeg"
-                className="-mt-8 ml-10"
-                width={300}
-                height={300}
-              ></Image>
-            </div>
+          <div className="invisible flex flex-col" ref={ref11}>
+            <Link
+              key={`${products?.[13]?.handle}`}
+              href={`/product/${products?.[13]?.handle}`}
+              className="group"
+            >
+              <div className="flex flex-col">
+                <h1 className="transition-color z-10 -mt-5 max-w-md cursor-pointer text-4xl text-gray-200 duration-500 group-hover:text-red-600">
+                  {products?.[13]?.title}
+                </h1>
+                <Image
+                  alt="white"
+                  src={products?.[13]?.featuredImage?.url}
+                  className="-mt-4 ml-10"
+                  width={300}
+                  height={300}
+                ></Image>
+              </div>
+            </Link>
           </div>
-          <div className="ml-48 mt-20 flex flex-col">
-            <div className="flex flex-col">
-              <h1 className="transition-color z-10 -mt-5 max-w-md cursor-pointer text-4xl text-gray-200 duration-500 hover:text-red-600">
-                WELCOME TO OUR NEW OFFICES IN MDQ
-              </h1>
-              <Image
-                alt="white"
-                className="-mt-8 ml-10"
-                src="/images/marble.jpeg"
-                width={300}
-                height={300}
-              ></Image>
-            </div>
+          <div className="invisible ml-48 mt-20 flex flex-col" ref={ref12}>
+            <Link
+              key={`${products?.[5]?.handle}`}
+              href={`/product/${products?.[5]?.handle}`}
+              className="group"
+            >
+              <div className="flex flex-col">
+                <h1 className="transition-color z-10 -mt-5 max-w-md cursor-pointer text-4xl text-gray-200 duration-500 group-hover:text-red-600">
+                  {products?.[5]?.title}
+                </h1>
+                <Image
+                  alt="white"
+                  className="-mt-4 ml-10"
+                  src={products?.[5]?.featuredImage?.url}
+                  width={300}
+                  height={300}
+                ></Image>
+              </div>
+            </Link>
           </div>
         </div>
         <div>

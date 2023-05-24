@@ -45,7 +45,7 @@ const SnowboardFlip = ({ position, model, rotationn }) => {
 
   return (
     <>
-      <directionalLight position={[0, 0, 3]} intensity={0.2} />
+      <directionalLight position={[-2, 7, 2]} intensity={0.4} />
       <ambientLight intensity={0.1} />
 
       <animated.mesh

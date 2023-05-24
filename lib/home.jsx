@@ -1,5 +1,6 @@
 'use client';
 import {
+  Environment,
   OrbitControls,
   ScrollControls,
   useGLTF,
@@ -8,7 +9,7 @@ import {
   useTexture
 } from '@react-three/drei';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import FPSStats from 'react-fps-stats';
 import * as THREE from 'three';
 import { Color, DirectionalLightHelper } from 'three';
@@ -32,9 +33,15 @@ const Plane = () => {
 
   return (
     <>
-      {/* <Environment background files={"/images/lights2.hdr"} blur={0.051} /> */}
+      {/* <Environment background files={'/images/lights2.hdr'} blur={0.07} /> */}
       <directionalLight position={[-4, 4, 1]} intensity={0.1} />
-      <mesh position-y={-0.5} position-z={1} rotation-x={-Math.PI * 0.5} scale={30}>
+      <mesh
+        position-y={-0.5}
+        position-z={1}
+        rotation-x={-Math.PI * 0.5}
+        scale={30}
+        envMapIntensity={0.1}
+      >
         <planeGeometry />
         <meshStandardMaterial
           color="white"
