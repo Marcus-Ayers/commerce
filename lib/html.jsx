@@ -1,6 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
 'use client';
-// import { Player } from '@lottiefiles/react-lottie-player';
+import { Player } from '@lottiefiles/react-lottie-player';
 import { Html } from '@react-three/drei';
 import 'animate.css';
 import { gsap } from 'gsap';
@@ -109,7 +109,7 @@ export const PageContent = (props) => {
         </div>
 
         <div className="">
-          {/* <Player
+          <Player
             className=""
             autoplay
             loop
@@ -121,11 +121,11 @@ export const PageContent = (props) => {
               marginLeft: '-15px',
               marginBottom: '150px'
             }}
-          ></Player> */}
+          ></Player>
         </div>
         <div ref={ref1} className="invisible">
           <div className="flex items-center">
-            {/* <Player
+            <Player
               className=""
               autoplay
               loop
@@ -135,7 +135,7 @@ export const PageContent = (props) => {
                 width: '80px',
                 margin: 'inherit'
               }}
-            ></Player> */}
+            ></Player>
             <p className="scroll-trigger text-sm font-light text-zinc-400 ">
               We design and build the digital services our clients need. And we are pretty good at
               it.
@@ -172,7 +172,7 @@ export const PageContent = (props) => {
         </div>
         <div className="mt-20 flex justify-around">
           <div>
-            {/* <Player
+            <Player
               className=""
               autoplay
               loop
@@ -184,7 +184,7 @@ export const PageContent = (props) => {
                 marginLeft: '-15px',
                 marginBottom: '150px'
               }}
-            ></Player> */}
+            ></Player>
           </div>
           <div className="invisible max-w-xl" ref={ref9}>
             <p className="text-md mr-48 font-light text-white ">
@@ -198,7 +198,7 @@ export const PageContent = (props) => {
         </div>
         <div ref={ref4} className="invisible">
           <div className="mb-5 flex items-center">
-            {/* <Player
+            <Player
               className=""
               autoplay
               loop
@@ -208,14 +208,14 @@ export const PageContent = (props) => {
                 width: '80px',
                 margin: 'inherit'
               }}
-            ></Player> */}
+            ></Player>
             <p className="text-md text-zinc-400 ">We’re pretty good at what we do…</p>
           </div>
           <div>
             <h1 className="text-6xl text-white">
               100+ AWARDS <br /> THAT PROVE WE’RE <br /> ALL ABOUT MAKING <br />
               <span className="flex">
-                {/* <Player
+                <Player
                   className=""
                   autoplay
                   loop
@@ -226,7 +226,7 @@ export const PageContent = (props) => {
                     margin: 'inherit',
                     marginTop: '-30px'
                   }}
-                ></Player> */}
+                ></Player>
                 HAPPY CLIENTS.
               </span>
             </h1>
@@ -246,7 +246,7 @@ export const PageContent = (props) => {
         </div>
         <div className="mt-20 flex justify-around">
           <div>
-            {/* <Player
+            <Player
               className=""
               autoplay
               loop
@@ -258,7 +258,7 @@ export const PageContent = (props) => {
                 marginLeft: '-15px',
                 marginBottom: '150px'
               }}
-            ></Player> */}
+            ></Player>
           </div>
           <div className="invisible max-w-xl" ref={ref10}>
             <p className="text-md mr-48 font-light text-white ">
@@ -267,7 +267,7 @@ export const PageContent = (props) => {
           </div>
         </div>
         <div className="flex items-center">
-          {/* <Player
+          <Player
             className=""
             autoplay
             loop
@@ -277,7 +277,7 @@ export const PageContent = (props) => {
               width: '80px',
               margin: 'inherit'
             }}
-          ></Player> */}
+          ></Player>
           <h3 className="text-md text-zinc-400">Our services.</h3>
         </div>
         <div ref={ref5} className="invisible mb-20 mt-10">
