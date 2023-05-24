@@ -56,14 +56,19 @@ export async function PUT(req: NextRequest): Promise<Response> {
 }
 
 export async function DELETE(req: NextRequest): Promise<Response> {
+  console.log("we've made it to the api");
   const cartId = cookies().get('cartId')?.value;
-  const { lineId } = await req.json();
-
-  if (!cartId || !lineId) {
-    return NextResponse.json({ error: 'Missing cartId or lineId' }, { status: 400 });
+  console.log('cartId is set');
+  const { merchandiseId } = await req.json();
+  console.log('MerchandiseId is set');
+  if (!cartId?.length || !merchandiseId?.length) {
+    return NextResponse.json({ error: 'Missing cartId or variantId' }, { status: 400 });
   }
+
   try {
-    await removeFromCart(cartId, [lineId]);
+    console.log('server side await');
+    await removeFromCart(cartId, merchandiseId);
+    console.log('server side after await');
     return NextResponse.json({ status: 204 });
   } catch (e) {
     if (isShopifyError(e)) {

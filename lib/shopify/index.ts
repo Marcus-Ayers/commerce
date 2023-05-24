@@ -204,6 +204,7 @@ export async function addToCart(
 }
 
 export async function removeFromCart(cartId: string, lineIds: string[]): Promise<Cart> {
+  console.log('you are in removeFromCart ');
   const res = await shopifyFetch<ShopifyRemoveFromCartOperation>({
     query: removeFromCartMutation,
     variables: {
@@ -212,8 +213,15 @@ export async function removeFromCart(cartId: string, lineIds: string[]): Promise
     },
     cache: 'no-store'
   });
+  console.log('this is the response:', res);
+  console.log('response body:', await res);
 
-  return reshapeCart(res.body.data.cartLinesRemove.cart);
+  try {
+    return reshapeCart(res.body.data.cartLinesRemove.cart);
+  } catch (error) {
+    console.error('Error reshaping cart:', error);
+    throw error;
+  }
 }
 
 export async function updateCart(
@@ -228,6 +236,7 @@ export async function updateCart(
     },
     cache: 'no-store'
   });
+  console.log('you have updated the cart');
 
   return reshapeCart(res.body.data.cartLinesUpdate.cart);
 }
@@ -272,7 +281,6 @@ export async function getCollectionProducts(handle: string): Promise<Product[]> 
 
   return reshapeProducts(removeEdgesAndNodes(res.body.data.collection.products));
 }
-
 export async function getCollections(): Promise<Collection[]> {
   const res = await shopifyFetch<ShopifyCollectionsOperation>({ query: getCollectionsQuery });
   const shopifyCollections = removeEdgesAndNodes(res.body?.data?.collections);
