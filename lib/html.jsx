@@ -7,10 +7,9 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useEffect, useRef, useState } from 'react';
+import { Suspense, useEffect, useRef, useState } from 'react';
 import Page2 from '../lib/card';
-// import { CarouselNew } from '../lib/carouselNew';
-import { Suspense } from 'react';
+import { CarouselNew } from '../lib/carouselNew';
 import EmblaCarousel from '../lib/imageCarousel';
 import { useScrollAnimation, useScrollAnimationTwo } from './Animations';
 
@@ -152,9 +151,9 @@ export const PageContent = (props) => {
           <Page2 />
         </div>
         <div className="mt-">
-          {/* <Suspense>
+          <Suspense>
             <CarouselNew />
-          </Suspense> */}
+          </Suspense>
         </div>
         <div ref={ref2} className="invisible">
           <p className="text-md mt-20 italic text-zinc-400">

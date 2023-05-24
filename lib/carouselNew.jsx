@@ -16,12 +16,30 @@ export function CarouselNew() {
   //   fetchProducts();
   // }, []);
 
+  // useEffect(() => {
+  //   async function fetchProducts() {
+  //     const handle = 'automated-collection';
+  //     const response2 = await fetch(`/api/collection-products?handle=${handle}`);
+  //     const products2 = await response2.json();
+  //     setProducts(products2);
+  //   }
+
+  //   fetchProducts();
+  // }, []);
+
   useEffect(() => {
     async function fetchProducts() {
-      const handle = 'automated-collection';
-      const response2 = await fetch(`/api/collection-products?handle=${handle}`);
-      const products2 = await response2.json();
-      setProducts(products2);
+      try {
+        const handle = 'automated-collection';
+        const response2 = await fetch(`/api/collection-products?handle=${handle}`);
+        if (!response2.ok) throw new Error('Network response was not ok');
+        const products2 = await response2.json();
+        if (!Array.isArray(products2)) throw new Error('Data is not an array');
+        setProducts(products2);
+      } catch (error) {
+        console.error('Error fetching products: ', error);
+        // Handle or display error appropriately
+      }
     }
 
     fetchProducts();
