@@ -7,10 +7,10 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Suspense, useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Page2 from '../lib/card';
-import { CarouselNew } from '../lib/carouselNew';
-import EmblaCarousel from '../lib/imageCarousel';
+// import { CarouselNew } from '../lib/carouselNew';
+// import EmblaCarousel from '../lib/imageCarousel';
 import { useScrollAnimation, useScrollAnimationTwo } from './Animations';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -54,9 +54,9 @@ export const PageContent = (props) => {
   const { ref: ref10 } = useScrollAnimationTwo();
   const { ref: ref11 } = useScrollAnimation();
   const { ref: ref12 } = useScrollAnimation();
-  const OPTIONS = { inViewThreshold: 0, dragFree: true, loop: false };
-  const SLIDE_COUNT = 5;
-  const SLIDES = Array.from(Array(SLIDE_COUNT).keys());
+  // const OPTIONS = { inViewThreshold: 0, dragFree: true, loop: false };
+  // const SLIDE_COUNT = 5;
+  // const SLIDES = Array.from(Array(SLIDE_COUNT).keys());
 
   useEffect(() => {
     setTimeout(() => {
@@ -151,9 +151,9 @@ export const PageContent = (props) => {
           <Page2 />
         </div>
         <div className="mt-">
-          <Suspense>
+          {/* <Suspense>
             <CarouselNew />
-          </Suspense>
+          </Suspense> */}
         </div>
         <div ref={ref2} className="invisible">
           <p className="text-md mt-20 italic text-zinc-400">
@@ -356,9 +356,9 @@ export const PageContent = (props) => {
           </p>
           <p className="mt-20 text-white">-Whats new?</p>
         </div>
-        <section className="sandbox__carousel invisible " ref={ref6}>
+        {/* <section className="sandbox__carousel invisible " ref={ref6}>
           <EmblaCarousel slides={SLIDES} options={OPTIONS} />
-        </section>
+        </section> */}
         <div>
           <p className="mt-36 text-white">5/13/23</p>
         </div>
