@@ -158,14 +158,16 @@ export const PageContent = (props) => {
         <div ref={ref2} className="invisible">
           <p className="text-md mt-20 italic text-zinc-400">
             {' '}
-            VIEW MORE{' '}
-            <span
-              className="text-lg not-italic text-white"
-              style={{ borderBottom: '1px solid red' }}
-            >
-              {' '}
-              PROJECTS
-            </span>
+            VIEW ALL{' '}
+            <Link href="/search" className="hover:cursor-pointer">
+              <span
+                className="text-lg not-italic text-white"
+                style={{ borderBottom: '1px solid red' }}
+              >
+                {' '}
+                PRODUCTS
+              </span>
+            </Link>
           </p>
         </div>
         <div className="mt-20 flex justify-around">

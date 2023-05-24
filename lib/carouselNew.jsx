@@ -36,6 +36,7 @@ export function CarouselNew() {
           <Link
             key={`${product.handle}${i}`}
             href={`/product/${product.handle}`}
+            target="blank"
             className="relative h-36 w-1/2 flex-none md:w-1/3"
           >
             {product.featuredImage ? (

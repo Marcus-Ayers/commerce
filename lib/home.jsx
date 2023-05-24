@@ -1,6 +1,5 @@
 'use client';
 import {
-  Environment,
   OrbitControls,
   ScrollControls,
   useGLTF,
@@ -9,8 +8,7 @@ import {
   useTexture
 } from '@react-three/drei';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
-import { useRef, useState } from 'react';
-import FPSStats from 'react-fps-stats';
+import { useEffect, useRef, useState } from 'react';
 import * as THREE from 'three';
 import { Color, DirectionalLightHelper } from 'three';
 import { PageContent } from '../lib/html';
@@ -81,10 +79,24 @@ const Square = () => {
     z: camera.rotation.z
   });
 
+  // define mouse state
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+
+  useEffect(() => {
+    const updateMousePosition = (ev) => {
+      setMousePosition({ x: ev.clientX, y: ev.clientY });
+    };
+
+    window.addEventListener('mousemove', updateMousePosition);
+
+    return () => window.removeEventListener('mousemove', updateMousePosition);
+  }, []); // Empty array ensures that effect is only run on mount and unmount
+
   useFrame(() => {
     camera.position.set(cameraPosition.x, cameraPosition.y, cameraPosition.z);
     camera.rotation.set(cameraRotation.x, cameraRotation.y, cameraRotation.z);
     camera.updateProjectionMatrix();
+
     if (scroll && scroll.offset) {
       const radius = 2;
       const angle = scroll.offset * 2 * Math.PI * 0.02 + 1.57;
@@ -95,8 +107,14 @@ const Square = () => {
       camera.position.set(x, camera.position.y, z);
       camera.lookAt(0, 0, 0);
       camera.updateProjectionMatrix();
+
+      // Add some rotation based on mouse position
+      const mouseLookSpeed = 0.0001; // Adjust this to change the sensitivity
+      // camera.rotation.y += (window.innerWidth / 2 - mousePosition.y) * mouseLookSpeed;
+      // camera.position.z += (window.innerHeight / 2 - mousePosition.x) * mouseLookSpeed;
     }
   });
+
   return (
     <>
       <mesh>
@@ -112,7 +130,7 @@ const Square = () => {
 const App = () => {
   return (
     <div className="h-screen">
-      <FPSStats />
+      {/* <FPSStats /> */}
       <Canvas camera={{ fov: 75, position: [2, 1, 0] }}>
         <ScrollControls>
           <Square />
@@ -120,9 +138,6 @@ const App = () => {
         </ScrollControls>
         <PageContent />
       </Canvas>
-      {/* <Suspense>
-        <Carousel />
-      </Suspense> */}
     </div>
   );
 };

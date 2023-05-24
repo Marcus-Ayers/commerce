@@ -20,7 +20,6 @@ const EmblaCarousel = (props) => {
       setLoading(false);
     }
 
-    console.log(products);
     fetchProducts();
   }, []);
 

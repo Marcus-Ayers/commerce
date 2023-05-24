@@ -1,10 +1,7 @@
-import { Carousel } from 'components/carousel';
-import { ThreeItemGrid } from 'components/grid/three-items';
-import Footer from 'components/layout/footer';
-import { Suspense } from 'react';
+import HomePageThree from 'lib/home';
 //The 'edge' runtime in Vercel represents a Serverless Function that is executed
 // at the Edge network, meaning it's closer to the user and therefore has reduced latency.
-export const runtime = 'edge';
+// export const runtime = 'edge';
 
 //The metadata object holds information about the page that helps with SEO
 // (Search Engine Optimization) and social sharing. The description is a brief
@@ -28,16 +25,7 @@ export const metadata = {
 export default async function HomePage() {
   return (
     <>
-      {/* @ts-expect-error Server Component */}
-      <ThreeItemGrid />
-      <Suspense>
-        {/* @ts-expect-error Server Component */}
-        <Carousel />
-        <Suspense>
-          {/* @ts-expect-error Server Component */}
-          <Footer />
-        </Suspense>
-      </Suspense>
+      <HomePageThree />
     </>
   );
 }
