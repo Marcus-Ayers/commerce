@@ -16,6 +16,38 @@ import { useScrollAnimation, useScrollAnimationTwo } from './Animations';
 gsap.registerPlugin(ScrollTrigger);
 
 export const PageContent = (props) => {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [message, setMessage] = useState('');
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log('Sending');
+    const data = {
+      name,
+      email,
+      message
+    };
+    fetch('/api/contact', {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json, text/plain, */*',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    }).then((res) => {
+      console.log('Response received');
+      if (res.status === 200) {
+        console.log('Response succeeded!');
+        setSubmitted(true);
+        setName('');
+        setEmail('');
+        setMessage('');
+      }
+    });
+  };
+
   const [products, setProducts] = useState('title');
 
   useEffect(() => {
@@ -23,6 +55,7 @@ export const PageContent = (props) => {
       const response = await fetch(`/api/products`);
       const productsData = await response.json();
       setProducts(productsData);
+      console.log(productsData);
     }
 
     fetchProducts();
@@ -54,7 +87,7 @@ export const PageContent = (props) => {
   const { ref: ref10 } = useScrollAnimationTwo();
   const { ref: ref11 } = useScrollAnimation();
   const { ref: ref12 } = useScrollAnimation();
-  const OPTIONS = { inViewThreshold: 0, dragFree: true, loop: false };
+  const OPTIONS = { inViewThreshold: 0, dragFree: true, loop: true };
   const SLIDE_COUNT = 5;
   const SLIDES = Array.from(Array(SLIDE_COUNT).keys());
 
@@ -90,20 +123,20 @@ export const PageContent = (props) => {
         </div>
         <div className="pt-10">
           <h2 className="header invisible text-lg font-light italic text-gray-400" ref={myElement3}>
-            WE MAKE{' '}
+            CRAFTING PREMIUM{' '}
             <span
               className="text-xl font-bold not-italic text-white"
               style={{ borderBottom: '1px solid red' }}
             >
               {' '}
-              DIGITAL PRODUCTS
+              SNOWBOARDS
             </span>{' '}
-            & AWESOME{' '}
+            WITH UNIQUE{' '}
             <span
               className="text-xl font-bold not-italic text-white"
               style={{ borderBottom: '1px solid red' }}
             >
-              BRANDS
+              STYLE
             </span>
           </h2>
         </div>
@@ -137,20 +170,19 @@ export const PageContent = (props) => {
               }}
             ></Player>
             <p className="scroll-trigger text-sm font-light text-zinc-400 ">
-              We design and build the digital services our clients need. And we are pretty good at
-              it.
+              We design and build the snowboards our clients need. And we are pretty good at it.
             </p>
           </div>
         </div>
         <div ref={ref3} className="invisible">
           <h2 className="mt-10 text-7xl text-white ">
-            WORKS <br /> THAT WORK
+            UNIQUE <br /> CUSTOM STYLE
           </h2>
         </div>
         <div className="">
           <Page2 />
         </div>
-        <div className="mt-">
+        <div className="">
           <Suspense>
             <CarouselNew />
           </Suspense>
@@ -159,7 +191,7 @@ export const PageContent = (props) => {
           <p className="text-md mt-20 italic text-zinc-400">
             {' '}
             VIEW ALL{' '}
-            <Link href="/search" className="hover:cursor-pointer">
+            <Link href="/search" target="blank" className="hover:cursor-pointer">
               <span
                 className="text-lg not-italic text-white"
                 style={{ borderBottom: '1px solid red' }}
@@ -170,7 +202,7 @@ export const PageContent = (props) => {
             </Link>
           </p>
         </div>
-        <div className="mt-20 flex justify-around">
+        <div className="mt-16 flex justify-around">
           <div>
             <Player
               className=""
@@ -186,13 +218,13 @@ export const PageContent = (props) => {
               }}
             ></Player>
           </div>
-          <div className="invisible max-w-xl" ref={ref9}>
-            <p className="text-md mr-48 font-light text-white ">
-              FOR +17 YEARS WE’VE BEEN WORKING WITH STARTUPS AND BIG COMPANIES, HELPING THEM
-              RE-DISCOVER THEIR ESSENCE AND LEVERAGE THEIR BUSINESS. WE’RE BUILT FOR FACING
-              CHALLENGES AND WE BELIEVE THE THE ONLY WAY TO ACHIEVE SUCCESS IS THROUGH
-              COLLABORATION. OUR COMPROMISE IS TO ALWAYS DRIVE A POSITIVECHANGE IN PEOPLE, COMPANIES
-              AND ORGANIZATIONS.
+          <div className="invisible max-w-2xl" ref={ref9}>
+            <p className=" font-base mr-48 text-sm text-white ">
+              FOR OVER 17 YEARS, WE'VE BEEN PARTNERING WITH STARTUPS AND ESTABLISHED COMPANIES IN
+              THE SNOWBOARDING INDUSTRY, HELPING THEM UNLEASH THEIR TRUE POTENTIAL AND ELEVATE THEIR
+              BUSINESS. BUILT TO CONQUER MOUNTAINS AND CHALLENGES ALIKE, WE BELIEVE THAT THE ONLY
+              WAY TO ACHIEVE SUCCESS IS THROUGH COLLABORATION. OUR COMMITMENT IS TO CONTINUALLY
+              DRIVE POSITIVE CHANGE IN PEOPLE, COMPANIES, AND THE GLOBAL SNOWBOARDING COMMUNITY.
             </p>
           </div>
         </div>
@@ -213,7 +245,7 @@ export const PageContent = (props) => {
           </div>
           <div>
             <h1 className="text-6xl text-white">
-              100+ AWARDS <br /> THAT PROVE WE’RE <br /> ALL ABOUT MAKING <br />
+              100+ 5 STAR REVIEWS <br /> THAT PROVE WE’RE <br /> ALL ABOUT MAKING <br />
               <span className="flex">
                 <Player
                   className=""
@@ -233,7 +265,7 @@ export const PageContent = (props) => {
           </div>
         </div>
         <div>
-          <h2 className="text-md mt-20 italic text-zinc-400">
+          <h2 className="text-md mt-10 italic text-zinc-400">
             LEARN MORE{' '}
             <span
               className="text-lg not-italic text-white"
@@ -244,7 +276,7 @@ export const PageContent = (props) => {
             </span>
           </h2>
         </div>
-        <div className="mt-20 flex justify-around">
+        <div className="mt-10 flex justify-around">
           <div>
             <Player
               className=""
@@ -255,14 +287,18 @@ export const PageContent = (props) => {
                 height: '80px',
                 width: '80px',
                 margin: 'inherit',
-                marginLeft: '-15px',
-                marginBottom: '150px'
+                marginLeft: '-15px'
+                // marginBottom: '120px'
               }}
             ></Player>
           </div>
-          <div className="invisible max-w-xl" ref={ref10}>
+          <div className="invisible max-w-2xl" ref={ref10}>
             <p className="text-md mr-48 font-light text-white ">
-              OUR SERVICES ARE RESULT ORIENTED AND WE OFFER FREE MAINTENANCE FOR ONE MONTH.
+              Each collection represents a distinct style, design philosophy, and performance focus,
+              allowing riders to choose the snowboard that aligns with their individual riding style
+              and terrain preferences. By offering different collections, the company aims to
+              provide a range of options that suit various skill levels, riding preferences, and
+              aesthetics.
             </p>
           </div>
         </div>
@@ -278,66 +314,70 @@ export const PageContent = (props) => {
               margin: 'inherit'
             }}
           ></Player>
-          <h3 className="text-md text-zinc-400">Our services.</h3>
+          <h3 className="text-md text-zinc-400">Our collections.</h3>
         </div>
         <div ref={ref5} className="invisible mb-20 mt-10">
           <h2 className="text-6xl text-white">
-            WE DESIGN TO <br />
-            MAKE YOUR
-            <br />
-            BUSINESS GROW
+            <h2 className="max-w-xl text-6xl text-white">VIEW OUR COLLECTIONS</h2>
           </h2>
         </div>
         <div className="flex justify-around">
-          <div className="invisible flex max-w-sm flex-col" ref={ref7}>
+          <div className="invisible flex flex-col" ref={ref7}>
             <div className="group flex flex-col">
-              <Link
-                key={`${products?.[4].handle}`}
-                href={`/product/${products?.[4].handle}`}
-                className=""
-              >
+              <Link key={`${products?.[4].handle}`} href={`/search/hydrogen`} className="">
                 <Image
                   alt="white"
-                  src={products?.[4].featuredImage?.url}
-                  width={350}
-                  height={350}
+                  src="/images/snowboarder.jpeg"
+                  width={450}
+                  height={450}
                   className="group"
                 ></Image>
-                <h1 className="-mt-5 text-5xl text-gray-200 duration-500 group-hover:text-red-600 ">
-                  {products?.[4].title}
+                <h1 className="-mt-5 text-5xl text-gray-300 duration-500 group-hover:text-red-600 ">
+                  HYDROGEN
                 </h1>
               </Link>
             </div>
-            <div className="max-w-sm">
-              <p className=" mt-20 text-white">
-                WE CREATE WEBSITES, APPS, CUSTOM PLATFORMS AND E-COMMERCE THAT ALLOW COMPANIES TO
-                HAVE A GLOBAL IMPACT AND SHARE MEANINGFUL CONNECTIONS WITH THEIR AUDIENCE.
+            <div className="max-w-md">
+              <p className=" mt-20 text-gray-200">
+                The Hydrogen collection is an embodiment of{' '}
+                <span className="text- text-white" style={{ borderBottom: '1px solid red' }}>
+                  {' '}
+                  PURE ELEGANCE{' '}
+                </span>{' '}
+                and refined craftsmanship. Inspired by the pristine beauty of the Arctic landscapes,
+                these snowboards are designed for riders who seek both style and performance on the
+                slopes.
               </p>
             </div>
           </div>
-          <div className="invisible mr-36 mt-20 flex max-w-sm flex-col" ref={ref8}>
+          <div className="invisible mr-36 mt-20 flex  flex-col" ref={ref8}>
             <Link
               key={`${products?.[3].handle}`}
-              href={`/product/${products?.[3].handle}`}
+              href={`/search/automated-collection`}
               className="group"
             >
               <div className="flex flex-col">
                 <Image
                   alt="white"
-                  src={products?.[3].featuredImage?.url}
-                  width={350}
-                  height={350}
+                  src="/images/mountain.jpeg"
+                  width={450}
+                  height={450}
                   className="group"
                 ></Image>
-                <h1 className="-mt-5 text-5xl text-gray-200 duration-500 group-hover:text-red-600 ">
-                  {products?.[3].title}
+                <h1 className="-mt-5 max-w-sm text-5xl text-gray-200 duration-500 group-hover:text-red-600 ">
+                  AUTOMATED COLLECTION
                 </h1>{' '}
               </div>
               <div className="max-w-sm">
-                <p className=" mt-20 text-white">
-                  WE DEVELOP DISRUPTIVE BRANDS AND HELP COMPANIES RE-DISCOVER THEIR IDENTITY. WE
-                  HELP OUR CLIENTS REALIZE THEIR FULL POTENTIAL AND SET THEM APART FROM THEIR
-                  COMPETITION.
+                <p className=" mt-10 text-gray-200">
+                  The Automated Collection represents the{' '}
+                  <span className="text-white" style={{ borderBottom: '1px solid red' }}>
+                    {' '}
+                    SPIRIT OF ADVENTURE
+                  </span>{' '}
+                  and the thrill of conquering the majestic alpine peaks. These snowboards are
+                  specially crafted for riders who crave adrenaline and seek the ultimate
+                  performance on challenging terrains.
                 </p>
               </div>
             </Link>
@@ -356,7 +396,7 @@ export const PageContent = (props) => {
           </p>
           <p className="mt-20 text-white">-Whats new?</p>
         </div>
-        <section className="sandbox__carousel invisible " ref={ref6}>
+        <section className="sandbox__carousel invisible -ml-36" ref={ref6}>
           <EmblaCarousel slides={SLIDES} options={OPTIONS} />
         </section>
         <div>
@@ -365,17 +405,17 @@ export const PageContent = (props) => {
         <div className="mt-20 flex">
           <div className="invisible flex flex-col" ref={ref11}>
             <Link
-              key={`${products?.[13]?.handle}`}
-              href={`/product/${products?.[13]?.handle}`}
+              key={`${products?.[4]?.handle}`}
+              href={`/product/${products?.[4]?.handle}`}
               className="group"
             >
               <div className="flex flex-col">
                 <h1 className="transition-color z-10 -mt-5 max-w-md cursor-pointer text-4xl text-gray-200 duration-500 group-hover:text-red-600">
-                  {products?.[13]?.title}
+                  {products?.[4]?.title}
                 </h1>
                 <Image
                   alt="white"
-                  src={products?.[13]?.featuredImage?.url}
+                  src={products?.[4]?.featuredImage?.url}
                   className="-mt-4 ml-10"
                   width={300}
                   height={300}
@@ -385,18 +425,18 @@ export const PageContent = (props) => {
           </div>
           <div className="invisible ml-48 mt-20 flex flex-col" ref={ref12}>
             <Link
-              key={`${products?.[5]?.handle}`}
-              href={`/product/${products?.[5]?.handle}`}
+              key={`${products?.[14]?.handle}`}
+              href={`/product/${products?.[14]?.handle}`}
               className="group"
             >
               <div className="flex flex-col">
                 <h1 className="transition-color z-10 -mt-5 max-w-md cursor-pointer text-4xl text-gray-200 duration-500 group-hover:text-red-600">
-                  {products?.[5]?.title}
+                  {products?.[14]?.title}
                 </h1>
                 <Image
                   alt="white"
                   className="-mt-4 ml-10"
-                  src={products?.[5]?.featuredImage?.url}
+                  src={products?.[14]?.featuredImage?.url}
                   width={300}
                   height={300}
                 ></Image>
@@ -409,52 +449,86 @@ export const PageContent = (props) => {
         </div>
         <div className="mt-36 max-w-5xl" style={{ borderBottom: '1px solid white' }}></div>
         <div>
-          <p className="mt-20 text-white">-Whats next</p>
+          <h1 className="text-semibold text-[200px] text-white">ALPINE</h1>
         </div>
-        <div>
-          <h1 className="text-semibold text-[200px] text-white">STUDIO</h1>
-        </div>
-        <div className="mt-5 flex">
-          <div>
-            <h2 className="text-lg text-white ">WE'D LOVE TO HEAR FROM YOU</h2>
-            <h2 className="text-semibold mt-10 text-5xl text-white">EMAIL@EMAIL.COM</h2>
-          </div>
-          <div className="mx-auto flex">
-            <div className="flex flex-col">
-              <h1 className="text-xs text-white">ABOUT US</h1>
-              <h2 className="mt-4 text-xs text-zinc-400">STUDIO</h2>
-              <h2 className="mt-4 text-xs text-zinc-400">CULTURE</h2>
-              <h2 className="mt-4 text-xs text-zinc-400">AWARDS</h2>
-              <h2 className="mt-4 text-xs text-zinc-400">CLIENTS</h2>
+        <div className=" mb-20 mt-5 flex">
+          <div className="mr-36 flex flex-col justify-between">
+            <div>
+              <h2 className="text-lg text-white ">WE'D LOVE TO HEAR FROM YOU</h2>
             </div>
-            <div className="mx-20 flex flex-col">
-              <h1 className="text-xs text-white">OUR WORK</h1>
-              <h2 className="mt-4 text-xs text-zinc-400">STUDIO</h2>
-              <h2 className="mt-4 text-xs text-zinc-400">CULTURE</h2>
-              <h2 className="mt-4 text-xs text-zinc-400">AWARDS</h2>
-              <h2 className="mt-4 text-xs text-zinc-400">CLIENTS</h2>
-            </div>
-            <div className="flex flex-col">
-              <h1 className="text-xs text-white">STAY IN TOUCH</h1>
-              <h2 className="mt-4 text-xs text-zinc-400">STUDIO</h2>
-              <h2 className="mt-4 text-xs text-zinc-400">CULTURE</h2>
-              <h2 className="mt-4 text-xs text-zinc-400">AWARDS</h2>
-              <h2 className="mt-4 text-xs text-zinc-400">CLIENTS</h2>
+            <div>
+              <div className="flex ">
+                <div>
+                  <p className="text-xs text-white">Subscribe to our newsletter</p>
+                  <input
+                    className="-ml-1 mt-3 h-12 w-[250px] rounded-full border border-zinc-600 bg-zinc-700 p-2 pl-3 placeholder:text-xs"
+                    placeholder="e.g. stevejobs@gmail.com"
+                  />
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-        <div className="mb-20 mt-48 flex justify-around">
-          <div className="flex  max-w-lg justify-around">
-            <h1 className="text-lg text-white">M.A. - 2003-2023 </h1>
-            <h1 className="text-lg text-white">Privacy</h1>
-            <h1 className="text-lg text-white">Legals</h1>
-          </div>
-          <div>
-            <p className="text-xs text-white">Subscribe to our newsletter</p>
-            <input
-              className="-ml-1 mt-3 h-12 w-[250px] rounded-full border border-zinc-600 bg-zinc-700 p-2 pl-3 placeholder:text-xs"
-              placeholder="e.g. stevejobs@gmail.com"
-            />
+          <div class="flex  ">
+            <div class="mx-auto w-full max-w-lg">
+              <h1 class="text-4xl font-medium">Contact us</h1>
+              <p class="mt-3">Email us at GlideSnowboards@gmail.com or message us here:</p>
+              <form action="" class="mt-10">
+                <div class="grid gap-6 sm:grid-cols-2">
+                  <div class="relative z-0">
+                    <input
+                      type="text"
+                      onChange={(e) => {
+                        setName(e.target.value);
+                      }}
+                      name="name"
+                      class="peer block w-full appearance-none border-0 border-b border-gray-500 bg-transparent px-0 py-2.5 text-sm text-white focus:border-red-600 focus:outline-none focus:ring-0"
+                      placeholder=" "
+                    />
+                    <label class="absolute top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:left-0 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-red-600 peer-focus:dark:text-red-500">
+                      Your name
+                    </label>
+                  </div>
+                  <div class="relative z-0">
+                    <input
+                      type="email"
+                      onChange={(e) => {
+                        setEmail(e.target.value);
+                      }}
+                      name="email"
+                      class="peer block w-full appearance-none border-0 border-b border-gray-500 bg-transparent px-0 py-2.5 text-sm text-white focus:border-red-600 focus:outline-none focus:ring-0"
+                      placeholder=" "
+                    />
+                    <label class="absolute top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:left-0 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-red-600 peer-focus:dark:text-red-500">
+                      Your email
+                    </label>
+                  </div>
+                  <div class="relative z-0 col-span-2">
+                    <textarea
+                      type="message"
+                      onChange={(e) => {
+                        setMessage(e.target.value);
+                      }}
+                      name="message"
+                      rows="5"
+                      class="peer block w-full appearance-none border-0 border-b border-gray-500 bg-transparent px-0 py-2.5 text-sm text-white focus:border-red-600 focus:outline-none focus:ring-0"
+                      placeholder=" "
+                    ></textarea>
+                    <label class="absolute top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:left-0 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-red-600 peer-focus:dark:text-red-500">
+                      Your message
+                    </label>
+                  </div>
+                </div>
+                <button
+                  type="submit"
+                  onClick={(e) => {
+                    handleSubmit(e);
+                  }}
+                  class="mt-5 rounded-md bg-black px-5 py-2 text-white hover:bg-gray-800 hover:text-gray-300"
+                >
+                  Send Message
+                </button>
+              </form>
+            </div>
           </div>
         </div>
       </div>

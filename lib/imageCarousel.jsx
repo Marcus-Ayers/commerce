@@ -23,7 +23,7 @@ const EmblaCarousel = (props) => {
     fetchProducts();
   }, []);
 
-  const productIndices = [1, 2, 3, 8, 11];
+  const productIndices = [5, 2, 3, 7, 10];
 
   const { slides, options } = props;
   const [emblaRef, emblaApi] = useEmblaCarousel(options);
@@ -98,8 +98,8 @@ const EmblaCarousel = (props) => {
                         alt="marble"
                         className="ml-48"
                         src={products?.[index]?.featuredImage?.url}
-                        width={500}
-                        height={500}
+                        width={400}
+                        height={400}
                       ></Image>
                     </div>
                   </Link>
