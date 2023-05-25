@@ -59,7 +59,7 @@ const Model = () => {
   // const model = useGLTF("/models/snowboardDraco.glb");
   return (
     <mesh position={[0.2, -0.5, -1.5]} rotation={[-0.2, 1.2, 0.2]}>
-      <primitive object={model.scene} dispose={null} />;
+      <primitive object={model.scene} dispose={null} />
     </mesh>
   );
 };
@@ -143,5 +143,9 @@ const App = () => {
 };
 
 export default function HomePageThree() {
-  return <App />;
+  return (
+    <>
+      <App />
+    </>
+  );
 }

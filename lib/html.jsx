@@ -110,7 +110,7 @@ export const PageContent = (props) => {
 
   return (
     <Html className="left-[-600px] top-[-200px] w-screen">
-      <div className="flex flex-col ">
+      <div className="flex flex-col">
         <div className="-mb-10 w-full">
           <h1 className="invisible text-[130px] font-semibold text-white" ref={myElement1}>
             WE WORK
@@ -128,9 +128,8 @@ export const PageContent = (props) => {
               className="text-xl font-bold not-italic text-white"
               style={{ borderBottom: '1px solid red' }}
             >
-              {' '}
-              SNOWBOARDS
-            </span>{' '}
+              SNOWBOARDS{' '}
+            </span>
             WITH UNIQUE{' '}
             <span
               className="text-xl font-bold not-italic text-white"
@@ -140,7 +139,6 @@ export const PageContent = (props) => {
             </span>
           </h2>
         </div>
-
         <div className="">
           <Player
             className=""
@@ -169,13 +167,13 @@ export const PageContent = (props) => {
                 margin: 'inherit'
               }}
             ></Player>
-            <p className="scroll-trigger text-sm font-light text-zinc-400 ">
+            <p className="scroll-trigger text-sm font-light text-zinc-400">
               We design and build the snowboards our clients need. And we are pretty good at it.
             </p>
           </div>
         </div>
         <div ref={ref3} className="invisible">
-          <h2 className="mt-10 text-7xl text-white ">
+          <h2 className="mt-10 text-7xl text-white">
             UNIQUE <br /> CUSTOM STYLE
           </h2>
         </div>
@@ -189,14 +187,12 @@ export const PageContent = (props) => {
         </div>
         <div ref={ref2} className="invisible">
           <p className="text-md mt-20 italic text-zinc-400">
-            {' '}
             VIEW ALL{' '}
             <Link href="/search" target="blank" className="hover:cursor-pointer">
               <span
                 className="text-lg not-italic text-white"
                 style={{ borderBottom: '1px solid red' }}
               >
-                {' '}
                 PRODUCTS
               </span>
             </Link>
@@ -219,7 +215,7 @@ export const PageContent = (props) => {
             ></Player>
           </div>
           <div className="invisible max-w-2xl" ref={ref9}>
-            <p className=" font-base mr-48 text-sm text-white ">
+            <p className=" font-base mr-48 text-sm text-white">
               FOR OVER 17 YEARS, WE'VE BEEN PARTNERING WITH STARTUPS AND ESTABLISHED COMPANIES IN
               THE SNOWBOARDING INDUSTRY, HELPING THEM UNLEASH THEIR TRUE POTENTIAL AND ELEVATE THEIR
               BUSINESS. BUILT TO CONQUER MOUNTAINS AND CHALLENGES ALIKE, WE BELIEVE THAT THE ONLY
@@ -241,7 +237,7 @@ export const PageContent = (props) => {
                 margin: 'inherit'
               }}
             ></Player>
-            <p className="text-md text-zinc-400 ">We’re pretty good at what we do…</p>
+            <p className="text-md text-zinc-400">We’re pretty good at what we do…</p>
           </div>
           <div>
             <h1 className="text-6xl text-white">
@@ -271,7 +267,6 @@ export const PageContent = (props) => {
               className="text-lg not-italic text-white"
               style={{ borderBottom: '1px solid red' }}
             >
-              {' '}
               ABOUT US
             </span>
           </h2>
@@ -293,7 +288,7 @@ export const PageContent = (props) => {
             ></Player>
           </div>
           <div className="invisible max-w-2xl" ref={ref10}>
-            <p className="text-md mr-48 font-light text-white ">
+            <p className="text-md mr-48 font-light text-white">
               Each collection represents a distinct style, design philosophy, and performance focus,
               allowing riders to choose the snowboard that aligns with their individual riding style
               and terrain preferences. By offering different collections, the company aims to
@@ -317,9 +312,9 @@ export const PageContent = (props) => {
           <h3 className="text-md text-zinc-400">Our collections.</h3>
         </div>
         <div ref={ref5} className="invisible mb-20 mt-10">
-          <h2 className="text-6xl text-white">
+          <div className="text-6xl text-white">
             <h2 className="max-w-xl text-6xl text-white">VIEW OUR COLLECTIONS</h2>
-          </h2>
+          </div>
         </div>
         <div className="flex justify-around">
           <div className="invisible flex flex-col" ref={ref7}>
@@ -332,18 +327,17 @@ export const PageContent = (props) => {
                   height={450}
                   className="group"
                 ></Image>
-                <h1 className="-mt-5 text-5xl text-gray-300 duration-500 group-hover:text-red-600 ">
+                <h1 className="-mt-5 text-5xl text-gray-300 duration-500 group-hover:text-red-600">
                   HYDROGEN
                 </h1>
               </Link>
             </div>
             <div className="max-w-md">
-              <p className=" mt-20 text-gray-200">
+              <p className="mt-20 text-gray-200">
                 The Hydrogen collection is an embodiment of{' '}
                 <span className="text- text-white" style={{ borderBottom: '1px solid red' }}>
-                  {' '}
                   PURE ELEGANCE{' '}
-                </span>{' '}
+                </span>
                 and refined craftsmanship. Inspired by the pristine beauty of the Arctic landscapes,
                 these snowboards are designed for riders who seek both style and performance on the
                 slopes.
@@ -364,17 +358,16 @@ export const PageContent = (props) => {
                   height={450}
                   className="group"
                 ></Image>
-                <h1 className="-mt-5 max-w-sm text-5xl text-gray-200 duration-500 group-hover:text-red-600 ">
+                <h1 className="-mt-5 max-w-sm text-5xl text-gray-200 duration-500 group-hover:text-red-600">
                   AUTOMATED COLLECTION
-                </h1>{' '}
+                </h1>
               </div>
               <div className="max-w-sm">
-                <p className=" mt-10 text-gray-200">
+                <p className="mt-10 text-gray-200">
                   The Automated Collection represents the{' '}
                   <span className="text-white" style={{ borderBottom: '1px solid red' }}>
-                    {' '}
-                    SPIRIT OF ADVENTURE
-                  </span>{' '}
+                    SPIRIT OF ADVENTURE{' '}
+                  </span>
                   and the thrill of conquering the majestic alpine peaks. These snowboards are
                   specially crafted for riders who crave adrenaline and seek the ultimate
                   performance on challenging terrains.
@@ -390,7 +383,6 @@ export const PageContent = (props) => {
               className="text-lg not-italic text-white"
               style={{ borderBottom: '1px solid red' }}
             >
-              {' '}
               OUR SERVICES
             </span>
           </p>
@@ -413,13 +405,17 @@ export const PageContent = (props) => {
                 <h1 className="transition-color z-10 -mt-5 max-w-md cursor-pointer text-4xl text-gray-200 duration-500 group-hover:text-red-600">
                   {products?.[4]?.title}
                 </h1>
-                <Image
-                  alt="white"
-                  src={products?.[4]?.featuredImage?.url}
-                  className="-mt-4 ml-10"
-                  width={300}
-                  height={300}
-                ></Image>
+                {products?.[4]?.featuredImage?.url ? (
+                  <Image
+                    alt="white"
+                    src={products[4].featuredImage.url}
+                    className="-mt-4 ml-10"
+                    width={300}
+                    height={300}
+                  />
+                ) : (
+                  <div>Loading...</div> // or any other loading placeholder
+                )}
               </div>
             </Link>
           </div>
@@ -433,13 +429,17 @@ export const PageContent = (props) => {
                 <h1 className="transition-color z-10 -mt-5 max-w-md cursor-pointer text-4xl text-gray-200 duration-500 group-hover:text-red-600">
                   {products?.[14]?.title}
                 </h1>
-                <Image
-                  alt="white"
-                  className="-mt-4 ml-10"
-                  src={products?.[14]?.featuredImage?.url}
-                  width={300}
-                  height={300}
-                ></Image>
+                {products?.[14]?.featuredImage?.url ? (
+                  <Image
+                    alt="white"
+                    src={products[14].featuredImage.url}
+                    className="-mt-4 ml-10"
+                    width={300}
+                    height={300}
+                  />
+                ) : (
+                  <div>Loading...</div> // or any other loading placeholder
+                )}
               </div>
             </Link>
           </div>
@@ -451,13 +451,13 @@ export const PageContent = (props) => {
         <div>
           <h1 className="text-semibold text-[200px] text-white">ALPINE</h1>
         </div>
-        <div className=" mb-20 mt-5 flex">
+        <div className="mb-20 mt-5 flex">
           <div className="mr-36 flex flex-col justify-between">
             <div>
-              <h2 className="text-lg text-white ">WE'D LOVE TO HEAR FROM YOU</h2>
+              <h2 className="text-lg text-white">WE'D LOVE TO HEAR FROM YOU</h2>
             </div>
             <div>
-              <div className="flex ">
+              <div className="flex">
                 <div>
                   <p className="text-xs text-white">Subscribe to our newsletter</p>
                   <input
@@ -468,41 +468,41 @@ export const PageContent = (props) => {
               </div>
             </div>
           </div>
-          <div class="flex  ">
-            <div class="mx-auto w-full max-w-lg">
-              <h1 class="text-4xl font-medium">Contact us</h1>
-              <p class="mt-3">Email us at GlideSnowboards@gmail.com or message us here:</p>
-              <form action="" class="mt-10">
-                <div class="grid gap-6 sm:grid-cols-2">
-                  <div class="relative z-0">
+          <div className="flex">
+            <div className="mx-auto w-full max-w-lg">
+              <h1 className="text-4xl font-medium">Contact us</h1>
+              <p className="mt-3">Email us at alpinesnow@gmail.com or message us here:</p>
+              <form action="" className="mt-10">
+                <div className="grid gap-6 sm:grid-cols-2">
+                  <div className="relative z-0">
                     <input
                       type="text"
                       onChange={(e) => {
                         setName(e.target.value);
                       }}
                       name="name"
-                      class="peer block w-full appearance-none border-0 border-b border-gray-500 bg-transparent px-0 py-2.5 text-sm text-white focus:border-red-600 focus:outline-none focus:ring-0"
-                      placeholder=" "
+                      className="peer block w-full appearance-none border-0 border-b border-gray-500 bg-transparent px-0 py-2.5 text-sm text-white focus:border-red-600 focus:outline-none focus:ring-0"
+                      placeholder=""
                     />
-                    <label class="absolute top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:left-0 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-red-600 peer-focus:dark:text-red-500">
+                    <label className="absolute top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:left-0 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-red-600 peer-focus:dark:text-red-500">
                       Your name
                     </label>
                   </div>
-                  <div class="relative z-0">
+                  <div className="relative z-0">
                     <input
                       type="email"
                       onChange={(e) => {
                         setEmail(e.target.value);
                       }}
                       name="email"
-                      class="peer block w-full appearance-none border-0 border-b border-gray-500 bg-transparent px-0 py-2.5 text-sm text-white focus:border-red-600 focus:outline-none focus:ring-0"
-                      placeholder=" "
+                      className="peer block w-full appearance-none border-0 border-b border-gray-500 bg-transparent px-0 py-2.5 text-sm text-white focus:border-red-600 focus:outline-none focus:ring-0"
+                      placeholder=""
                     />
-                    <label class="absolute top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:left-0 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-red-600 peer-focus:dark:text-red-500">
+                    <label className="absolute top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:left-0 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-red-600 peer-focus:dark:text-red-500">
                       Your email
                     </label>
                   </div>
-                  <div class="relative z-0 col-span-2">
+                  <div className="relative z-0 col-span-2">
                     <textarea
                       type="message"
                       onChange={(e) => {
@@ -510,10 +510,10 @@ export const PageContent = (props) => {
                       }}
                       name="message"
                       rows="5"
-                      class="peer block w-full appearance-none border-0 border-b border-gray-500 bg-transparent px-0 py-2.5 text-sm text-white focus:border-red-600 focus:outline-none focus:ring-0"
-                      placeholder=" "
+                      className="peer block w-full appearance-none border-0 border-b border-gray-500 bg-transparent px-0 py-2.5 text-sm text-white focus:border-red-600 focus:outline-none focus:ring-0"
+                      placeholder=""
                     ></textarea>
-                    <label class="absolute top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:left-0 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-red-600 peer-focus:dark:text-red-500">
+                    <label className="absolute top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:left-0 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-red-600 peer-focus:dark:text-red-500">
                       Your message
                     </label>
                   </div>
@@ -523,7 +523,7 @@ export const PageContent = (props) => {
                   onClick={(e) => {
                     handleSubmit(e);
                   }}
-                  class="mt-5 rounded-md bg-black px-5 py-2 text-white hover:bg-gray-800 hover:text-gray-300"
+                  className="mt-5 rounded-md bg-black px-5 py-2 text-white hover:bg-gray-800 hover:text-gray-300"
                 >
                   Send Message
                 </button>

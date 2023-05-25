@@ -10,7 +10,7 @@ const Model2 = ({ modelPath, initialRotation }) => {
 
   return (
     <mesh position={[0, -3, 0]} rotation={initialRotation} scale={3}>
-      <primitive object={model2.scene} dispose={null} />;
+      <primitive object={model2.scene} dispose={null} />
     </mesh>
   );
 };
@@ -47,7 +47,6 @@ const SnowboardFlip = ({ position, model, rotationn }) => {
     <>
       <directionalLight position={[-2, 7, 2]} intensity={0.4} />
       <ambientLight intensity={0.1} />
-
       <animated.mesh
         ref={cubeRef}
         rotation={rotation}
@@ -58,8 +57,8 @@ const SnowboardFlip = ({ position, model, rotationn }) => {
       >
         <Model2 modelPath={model} initialRotation={rotationn} />
         <meshBasicMaterial />
-        <boxBufferGeometry attach="geometry" args={[1, 5, 1]} />
-        <meshBasicMaterial attach="material" transparent opacity={0} />{' '}
+        <boxGeometry attach="geometry" args={[1, 5, 1]} />
+        <meshBasicMaterial attach="material" transparent opacity={0} />
       </animated.mesh>
     </>
   );
@@ -69,8 +68,6 @@ const Page2 = () => {
   return (
     <div className="h-[500px] overflow-hidden" style={{ height: '500px', marginLeft: '-150px' }}>
       <Canvas style={{ background: 'transparent' }}>
-        {/* <color attach="background" args={["black"]} /> */}
-
         <SnowboardFlip
           model="/models/snowboardDraco.glb"
           position={[-2, 0.5, 0.25]}
