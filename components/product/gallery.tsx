@@ -71,7 +71,8 @@ export function Gallery({
       </div>
 
       {images.length > 1 ? (
-        <div className="flex">
+        // might need to change this
+        <div className="mb-20 flex">
           {images.map((image, index) => {
             const isActive = index === currentImage;
             return (
