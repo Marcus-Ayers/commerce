@@ -1,7 +1,7 @@
+'use client';
+
 import clsx from 'clsx';
 import Image from 'next/image';
-
-import Price from 'components/price';
 
 export function GridTileImage({
   isInteractive = true,
@@ -17,6 +17,7 @@ export function GridTileImage({
     title: string;
     amount: string;
     currencyCode: string;
+    prodId: Array;
     isSmall?: boolean;
   };
 } & React.ComponentProps<typeof Image>) {
@@ -48,7 +49,7 @@ export function GridTileImage({
           />
         </div>
       ) : null}
-      {labels ? (
+      {/* {labels ? (
         <div className="  text-black dark:text-white">
           <h3
             data-testid="product-name"
@@ -65,7 +66,7 @@ export function GridTileImage({
             currencyCode={labels.currencyCode}
           />
         </div>
-      ) : null}
+      ) : null} */}
     </div>
   );
 }

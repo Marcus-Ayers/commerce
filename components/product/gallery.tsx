@@ -10,9 +10,11 @@ export function Gallery({
   title,
   amount,
   currencyCode,
+  prodId,
   images
 }: {
   title: string;
+  prodId: Array;
   amount: string;
   currencyCode: string;
   images: { src: string; altText: string }[];
@@ -45,7 +47,8 @@ export function Gallery({
             labels={{
               title,
               amount,
-              currencyCode
+              currencyCode,
+              prodId
             }}
           />
         )}
