@@ -76,7 +76,11 @@ export default async function ProductPage({ params }: { params: { handle: string
 
         <div className="p-6 lg:col-span-2">
           {/* @ts-expect-error Server Component */}
-          <VariantSelector options={product.options} variants={product.variants} />
+          <VariantSelector
+            options={product.options}
+            variants={product.variants}
+            product={product}
+          />
 
           {product.descriptionHtml ? (
             <Prose className="mb-6 text-sm leading-tight" html={product.descriptionHtml} />

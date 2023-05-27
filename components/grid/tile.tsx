@@ -1,6 +1,7 @@
 'use client';
 
 import clsx from 'clsx';
+import Price from 'components/price';
 import Image from 'next/image';
 
 export function GridTileImage({
@@ -39,7 +40,7 @@ export function GridTileImage({
         <span className="absolute h-full w-full  opacity-25"></span>
       ) : null}
       {props.src ? (
-        <div className="max-h-[350px] overflow-hidden">
+        <div className="max-h-[550px] overflow-hidden">
           <Image
             className={clsx('relative mb-1 h-full w-full object-contain', {
               'transition duration-300 ease-in-out hover:scale-105': isInteractive
@@ -49,7 +50,7 @@ export function GridTileImage({
           />
         </div>
       ) : null}
-      {/* {labels ? (
+      {labels ? (
         <div className="  text-black dark:text-white">
           <h3
             data-testid="product-name"
@@ -66,7 +67,7 @@ export function GridTileImage({
             currencyCode={labels.currencyCode}
           />
         </div>
-      ) : null} */}
+      ) : null}
     </div>
   );
 }

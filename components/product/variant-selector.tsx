@@ -21,19 +21,29 @@ type OptimizedVariant = {
 
 export function VariantSelector({
   options,
-  variants
+  variants,
+  product
 }: {
   options: ProductOption[];
   variants: ProductVariant[];
+  product: any;
 }) {
   const pathname = usePathname();
   const currentParams = useSearchParams();
   const router = useRouter();
   const hasNoOptionsOrJustOneOption =
     !options.length || (options.length === 1 && options[0]?.values.length === 1);
-
   if (hasNoOptionsOrJustOneOption) {
-    return null;
+    return (
+      <div>
+        <h3
+          data-testid="product-name"
+          className="inline box-decoration-clone pl-3 text-3xl font-semibold leading-normal"
+        >
+          {product.title}
+        </h3>
+      </div>
+    );
   }
 
   // Discard any unexpected options or values from url and create params map.
@@ -47,6 +57,7 @@ export function VariantSelector({
   const optimizedVariants: OptimizedVariant[] = variants.map((variant) => {
     const optimized: OptimizedVariant = {
       id: variant.id,
+      price: variant.price.amount,
       availableForSale: variant.availableForSale,
       params: new URLSearchParams()
     };
@@ -78,25 +89,24 @@ export function VariantSelector({
     ) || optimizedVariants.find((variant) => variant.availableForSale);
 
   const label = selectedVariant?.title; // replace 'title' with the correct attribute name
-  const amount = '100'; // replace 'price' and 'amount' with correct attribute names
+  const amount = selectedVariant?.price; // replace 'price' and 'amount' with correct attribute names
   const currencyCode = 'USD'; // replace 'price' and 'currencyCode' with correct attribute names
 
   const selectedVariantParams = new URLSearchParams(selectedVariant?.params);
   const currentUrl = createUrl(pathname, currentParams);
   const selectedVariantUrl = createUrl(pathname, selectedVariantParams);
-  console.log(selectedVariant);
+  console.log(product);
 
   if (currentUrl !== selectedVariantUrl) {
     router.replace(selectedVariantUrl);
   }
-
   return options.map((option, index) => (
     <React.Fragment key={index}>
       {label && (
         <div className="text-black dark:text-white">
           <h3
             data-testid="product-name"
-            className="inline box-decoration-clone pl-3 text-3xl font-semibold leading-loose"
+            className="inline box-decoration-clone pl-3 text-3xl font-semibold leading-normal"
           >
             {label}
           </h3>

@@ -30,26 +30,26 @@ export function Gallery({
   }
 
   const buttonClassName =
-    'px-9 cursor-pointer ease-in-and-out duration-200 transition-bg bg-[#7928ca] hover:bg-violetDark';
+    'px-6 cursor-pointer ease-in-and-out duration-200 transition-bg bg-red-500 hover:bg-red-700';
 
   return (
     <div className="h-full">
-      <div className="relative h-full max-h-[600px] overflow-hidden">
+      <div className="relative h-full max-h-[600px] ">
         {images[currentImage] && (
           <GridTileImage
             src={images[currentImage]?.src as string}
             alt={images[currentImage]?.altText as string}
-            width={600}
-            height={600}
+            width={900}
+            height={900}
             isInteractive={false}
             priority={true}
-            background="purple"
-            labels={{
-              title,
-              amount,
-              currencyCode,
-              prodId
-            }}
+            // background="purple"
+            // labels={{
+            //   title,
+            //   amount,
+            //   currencyCode,
+            //   prodId
+            // }}
           />
         )}
 
