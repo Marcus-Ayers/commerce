@@ -89,7 +89,7 @@ export function VariantSelector({
     ) || optimizedVariants.find((variant) => variant.availableForSale);
 
   const label = selectedVariant?.title; // replace 'title' with the correct attribute name
-  const amount = selectedVariant?.price; // replace 'price' and 'amount' with correct attribute names
+  const amount = selectedVariant?.price?.toString() ?? ''; // Ensure `amount` is always a string or an empty string if undefined
   const currencyCode = 'USD'; // replace 'price' and 'currencyCode' with correct attribute names
 
   const selectedVariantParams = new URLSearchParams(selectedVariant?.params);
