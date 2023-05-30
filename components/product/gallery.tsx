@@ -10,11 +10,11 @@ export function Gallery({
   title,
   amount,
   currencyCode,
-  prodId,
+  // prodId,
   images
 }: {
   title: string;
-  prodId: Array;
+  // prodId: Array;
   amount: string;
   currencyCode: string;
   images: { src: string; altText: string }[];
