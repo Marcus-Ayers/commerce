@@ -34,6 +34,7 @@ export function VariantSelector({
   const hasNoOptionsOrJustOneOption =
     !options.length || (options.length === 1 && options[0]?.values.length === 1);
   if (hasNoOptionsOrJustOneOption) {
+    console.log(product);
     return (
       <div>
         <h3
@@ -42,6 +43,10 @@ export function VariantSelector({
         >
           {product.title}
         </h3>
+        <p className="pl-3 text-sm font-semibold">
+          ${product.priceRange.maxVariantPrice.amount}{' '}
+          {product.priceRange.maxVariantPrice.currencyCode}
+        </p>
       </div>
     );
   }
@@ -95,7 +100,6 @@ export function VariantSelector({
   const selectedVariantParams = new URLSearchParams(selectedVariant?.params);
   const currentUrl = createUrl(pathname, currentParams);
   const selectedVariantUrl = createUrl(pathname, selectedVariantParams);
-  console.log(product);
 
   if (currentUrl !== selectedVariantUrl) {
     router.replace(selectedVariantUrl);
