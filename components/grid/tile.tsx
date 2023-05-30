@@ -18,7 +18,7 @@ export function GridTileImage({
     title: string;
     amount: string;
     currencyCode: string;
-    prodId: String[];
+    prodId: string[];
     isSmall?: boolean;
   };
 } & React.ComponentProps<typeof Image>) {
