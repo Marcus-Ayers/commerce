@@ -14,7 +14,7 @@ export function Gallery({
   images
 }: {
   title: string;
-  prodId: Array;
+  prodId: String[];
   amount: string;
   currencyCode: string;
   images: { src: string; altText: string }[];
