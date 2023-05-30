@@ -32,7 +32,8 @@ const Plane = () => {
   return (
     <>
       {/* <Environment background files={'/images/lights2.hdr'} blur={0.07} /> */}
-      <directionalLight position={[-4, 4, 1]} intensity={0.1} />
+      <spotLight position={[-4, 4, 1]} intensity={0.4} />
+
       <mesh
         position-y={-0.5}
         position-z={1}
@@ -55,11 +56,31 @@ const Plane = () => {
 };
 
 const Model = () => {
+  const lightRef = useRef();
+  const targetRef = useRef();
+
+  useFrame(() => {
+    if (lightRef.current && targetRef.current) {
+      lightRef.current.target = targetRef.current;
+    }
+  });
   const model = useGLTF('/models/snowboardImage2.glb');
+  // const model = useGLTF("/models/snowboardDraco.glb");
+  return (
+    <mesh ref={targetRef} position={[0.2, -0.5, -1.5]} rotation={[-0.2, 1.2, 0.2]}>
+      <primitive object={model.scene} dispose={null} />
+      <spotLight ref={lightRef} position={[1, 8, 3]} intensity={0.6} />
+    </mesh>
+  );
+};
+
+const Mountains = () => {
+  const model = useGLTF('/models/mountainsDraco7.glb');
   // const model = useGLTF("/models/snowboardDraco.glb");
   return (
     <mesh position={[0.2, -0.5, -1.5]} rotation={[-0.2, 1.2, 0.2]}>
       <primitive object={model.scene} dispose={null} />
+      {/* <OrbitControls /> */}
     </mesh>
   );
 };
@@ -118,9 +139,11 @@ const Square = () => {
   return (
     <>
       <mesh>
-        <ambientLight intensity={0.5} />
+        <spotLight position={[10, 9, 0]} intensity={0.08} />
+        <ambientLight intensity={0.03} />
         <OrbitControls enableZoom={false} />
         <Model />
+        <Mountains />
         <Plane />
       </mesh>
     </>
