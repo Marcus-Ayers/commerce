@@ -339,11 +339,7 @@ export const PageContent = (props) => {
                   className="group "
                 ></Image>
               </Link>
-              <Link
-                key={`${products?.[4].handle}`}
-                href={`/search/hydrogen`}
-                className="group z-50"
-              >
+              <Link href={`/search/hydrogen`} className="group z-50">
                 <h1 className=" -mt-5 text-4xl text-gray-300 duration-500 group-hover:text-red-600 md:text-5xl">
                   HYDROGEN
                 </h1>
@@ -378,11 +374,7 @@ export const PageContent = (props) => {
                 className="group"
               ></Image>
             </Link>
-            <Link
-              key={`${products?.[3].handle}`}
-              href={`/search/automated-collection`}
-              className="group z-50"
-            >
+            <Link href={`/search/automated-collection`} className="group z-50">
               <h1 className="-mt-5 max-w-sm text-4xl text-gray-200 duration-500 group-hover:text-red-600 md:text-5xl">
                 AUTOMATED COLLECTION
               </h1>
