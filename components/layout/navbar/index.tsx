@@ -3,9 +3,10 @@ import { Suspense } from 'react';
 
 import Cart from 'components/cart';
 import CartIcon from 'components/icons/cart';
-import LogoIcon from 'components/icons/logo';
+// import LogoIcon from 'components/icons/logo';
 import { getMenu } from 'lib/shopify';
 import { Menu } from 'lib/shopify/types';
+import Image from 'next/image';
 import MobileMenu from './mobile-menu';
 import Search from './search';
 
@@ -20,7 +21,14 @@ export default async function Navbar() {
       <div className="flex justify-self-center md:w-1/3 md:justify-self-start">
         <div className="md:mr-4">
           <Link href="/" aria-label="Go back home">
-            <LogoIcon className="h-8 transition-transform hover:scale-110" />
+            {/* <LogoIcon className="h-8 transition-transform hover:scale-110" /> */}
+            <Image
+              src="/images/alogo.jpeg"
+              alt="logo"
+              width={50}
+              height={50}
+              className="rounded-full transition-transform hover:scale-110"
+            ></Image>
           </Link>
         </div>
         {menu.length ? (
