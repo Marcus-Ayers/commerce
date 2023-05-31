@@ -48,7 +48,7 @@ export function CarouselNew() {
   if (!products) return null;
 
   return (
-    <div className="relative -ml-32 h-36 w-[110vw] overflow-hidden bg-white">
+    <div className="relative -ml-32 h-36 overflow-hidden bg-white md:w-[110vw] 2xl:w-full">
       <div className="flex animate-carousel">
         {[...products, ...products].map((product, i) => (
           <Link
@@ -67,7 +67,7 @@ export function CarouselNew() {
               />
             ) : null}
             <div className="absolute inset-y-0 right-0 flex items-center justify-center">
-              <div className="inline-flex bg-white p-4 text-xl font-semibold text-black dark:bg-black dark:text-white">
+              <div className="inline-flex bg-white p-4 text-xs font-semibold text-black dark:bg-black dark:text-white md:text-xl">
                 {product.title}
               </div>
             </div>

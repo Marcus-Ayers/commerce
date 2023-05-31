@@ -109,30 +109,39 @@ export const PageContent = (props) => {
   }, []);
 
   return (
-    <Html className="left-[-600px] top-[-200px] w-screen">
-      <div className="flex flex-col">
-        <div className="-mb-10 w-full">
-          <h1 className="invisible text-[130px] font-semibold text-white" ref={myElement1}>
+    <Html className="left-[-140px] w-screen md:left-[-600px] md:top-[-300px]">
+      <div className="flex max-w-7xl flex-col">
+        <div className="w-full ">
+          <h1
+            className="invisible text-5xl font-semibold text-white md:text-[130px]"
+            ref={myElement1}
+          >
             WE WORK
           </h1>
         </div>
         <div className="">
-          <h2 className="invisible text-[130px] font-semibold text-white" ref={myElement2}>
+          <h2
+            className="invisible text-5xl font-semibold text-white md:text-[130px]"
+            ref={myElement2}
+          >
             FOR PEOPLE
           </h2>
         </div>
         <div className="pt-10">
-          <h2 className="header invisible text-lg font-light italic text-gray-400" ref={myElement3}>
+          <h2
+            className="header invisible max-w-xs text-sm font-light italic text-gray-400 md:max-w-none md:text-lg"
+            ref={myElement3}
+          >
             CRAFTING PREMIUM{' '}
             <span
-              className="text-xl font-bold not-italic text-white"
+              className="test-lg font-bold not-italic text-white md:text-xl"
               style={{ borderBottom: '1px solid red' }}
             >
               SNOWBOARDS{' '}
             </span>
             WITH UNIQUE{' '}
             <span
-              className="text-xl font-bold not-italic text-white"
+              className="text-lg font-bold not-italic text-white md:text-xl"
               style={{ borderBottom: '1px solid red' }}
             >
               STYLE
@@ -155,7 +164,7 @@ export const PageContent = (props) => {
           ></Player>
         </div>
         <div ref={ref1} className="invisible">
-          <div className="flex items-center">
+          <div className="-ml-10 flex items-center md:ml-0">
             <Player
               className=""
               autoplay
@@ -167,13 +176,13 @@ export const PageContent = (props) => {
                 margin: 'inherit'
               }}
             ></Player>
-            <p className="scroll-trigger text-sm font-light text-zinc-400">
+            <p className="scroll-trigger max-w-[240px] text-sm font-light text-zinc-400 md:max-w-none">
               We design and build the snowboards our clients need. And we are pretty good at it.
             </p>
           </div>
         </div>
         <div ref={ref3} className="invisible">
-          <h2 className="mt-10 text-7xl text-white">
+          <h2 className="mt-10 text-5xl text-white md:text-7xl">
             UNIQUE <br /> CUSTOM STYLE
           </h2>
         </div>
@@ -198,7 +207,7 @@ export const PageContent = (props) => {
             </Link>
           </p>
         </div>
-        <div className="mt-16 flex justify-around">
+        <div className="mt-16 flex flex-col justify-around md:flex-row">
           <div>
             <Player
               className=""
@@ -215,7 +224,7 @@ export const PageContent = (props) => {
             ></Player>
           </div>
           <div className="invisible max-w-2xl" ref={ref9}>
-            <p className=" font-base mr-48 text-sm text-white">
+            <p className=" font-base mr-10 max-w-xl text-xs text-white md:mr-48 md:text-sm">
               FOR OVER 17 YEARS, WE'VE BEEN PARTNERING WITH STARTUPS AND ESTABLISHED COMPANIES IN
               THE SNOWBOARDING INDUSTRY, HELPING THEM UNLEASH THEIR TRUE POTENTIAL AND ELEVATE THEIR
               BUSINESS. BUILT TO CONQUER MOUNTAINS AND CHALLENGES ALIKE, WE BELIEVE THAT THE ONLY
@@ -237,10 +246,12 @@ export const PageContent = (props) => {
                 margin: 'inherit'
               }}
             ></Player>
-            <p className="text-md text-zinc-400">We’re pretty good at what we do…</p>
+            <p className="md:text-md max-w-md text-sm text-zinc-400 md:max-w-none">
+              We’re pretty good at what we do…
+            </p>
           </div>
           <div>
-            <h1 className="text-6xl text-white">
+            <h1 className="-ml-5 text-2xl text-white md:mr-0 md:text-6xl">
               100+ 5 STAR REVIEWS <br /> THAT PROVE WE’RE <br /> ALL ABOUT MAKING <br />
               <span className="flex">
                 <Player
@@ -271,7 +282,7 @@ export const PageContent = (props) => {
             </span>
           </h2>
         </div>
-        <div className="mt-10 flex justify-around">
+        <div className="mt-10 flex flex-col justify-around md:flex-row">
           <div>
             <Player
               className=""
@@ -288,7 +299,7 @@ export const PageContent = (props) => {
             ></Player>
           </div>
           <div className="invisible max-w-2xl" ref={ref10}>
-            <p className="text-md mr-48 font-light text-white">
+            <p className=" md:text-md mr-10 text-sm font-light text-white md:mr-48">
               Each collection represents a distinct style, design philosophy, and performance focus,
               allowing riders to choose the snowboard that aligns with their individual riding style
               and terrain preferences. By offering different collections, the company aims to
@@ -313,13 +324,13 @@ export const PageContent = (props) => {
         </div>
         <div ref={ref5} className="invisible mb-20 mt-10">
           <div className="text-6xl text-white">
-            <h2 className="max-w-xl text-6xl text-white">VIEW OUR COLLECTIONS</h2>
+            <h2 className="max-w-xl text-4xl text-white md:text-6xl">VIEW OUR COLLECTIONS</h2>
           </div>
         </div>
-        <div className="flex justify-around">
+        <div className="flex flex-col justify-around md:flex-row">
           <div className="invisible flex flex-col" ref={ref7}>
-            <div className="group flex flex-col">
-              <Link key={`${products?.[4].handle}`} href={`/search/hydrogen`} className="">
+            <div className="group mr-36 flex flex-col md:mr-0">
+              <Link key={`${products?.[4].handle}`} href={`/search/hydrogen`} className="group">
                 <Image
                   alt="white"
                   src="/images/snowboarder.jpeg"
@@ -327,15 +338,18 @@ export const PageContent = (props) => {
                   height={450}
                   className="group"
                 ></Image>
-                <h1 className="-mt-5 text-5xl text-gray-300 duration-500 group-hover:text-red-600">
+                <h1 className="-mt-5 text-4xl text-gray-300 duration-500 group-hover:text-red-600 md:text-5xl">
                   HYDROGEN
                 </h1>
               </Link>
             </div>
-            <div className="max-w-md">
-              <p className="mt-20 text-gray-200">
+            <div className="-ml-5 max-w-xs md:ml-0 md:max-w-md">
+              <p className="md:text-md mt-10 text-sm text-gray-200 md:mt-20">
                 The Hydrogen collection is an embodiment of{' '}
-                <span className="text- text-white" style={{ borderBottom: '1px solid red' }}>
+                <span
+                  className="text-md text-white md:text-lg"
+                  style={{ borderBottom: '1px solid red' }}
+                >
                   PURE ELEGANCE{' '}
                 </span>
                 and refined craftsmanship. Inspired by the pristine beauty of the Arctic landscapes,
@@ -344,7 +358,7 @@ export const PageContent = (props) => {
               </p>
             </div>
           </div>
-          <div className="invisible mr-36 mt-20 flex  flex-col" ref={ref8}>
+          <div className="invisible mr-[5rem] mt-20 flex flex-col  md:mr-36" ref={ref8}>
             <Link
               key={`${products?.[3].handle}`}
               href={`/search/automated-collection`}
@@ -358,14 +372,17 @@ export const PageContent = (props) => {
                   height={450}
                   className="group"
                 ></Image>
-                <h1 className="-mt-5 max-w-sm text-5xl text-gray-200 duration-500 group-hover:text-red-600">
+                <h1 className="-mt-5 max-w-sm text-4xl text-gray-200 duration-500 group-hover:text-red-600 md:text-5xl">
                   AUTOMATED COLLECTION
                 </h1>
               </div>
               <div className="max-w-sm">
-                <p className="mt-10 text-gray-200">
+                <p className="md:text-md mt-10 text-sm text-gray-200">
                   The Automated Collection represents the{' '}
-                  <span className="text-white" style={{ borderBottom: '1px solid red' }}>
+                  <span
+                    className="text-md text-white md:text-lg"
+                    style={{ borderBottom: '1px solid red' }}
+                  >
                     SPIRIT OF ADVENTURE{' '}
                   </span>
                   and the thrill of conquering the majestic alpine peaks. These snowboards are
@@ -388,13 +405,13 @@ export const PageContent = (props) => {
           </p>
           <p className="mt-20 text-white">-Whats new?</p>
         </div>
-        <section className="sandbox__carousel invisible -ml-36" ref={ref6}>
+        <section className="sandbox__carousel invisible  overflow-hidden md:-ml-36" ref={ref6}>
           <EmblaCarousel slides={SLIDES} options={OPTIONS} />
         </section>
         <div>
           <p className="mt-36 text-white">5/13/23</p>
         </div>
-        <div className="mt-20 flex">
+        <div className="-ml-10 mt-20 flex flex-col md:ml-0 md:flex-row">
           <div className="invisible flex flex-col" ref={ref11}>
             <Link
               key={`${products?.[4]?.handle}`}
@@ -402,7 +419,7 @@ export const PageContent = (props) => {
               className="group"
             >
               <div className="flex flex-col">
-                <h1 className="transition-color z-10 -mt-5 max-w-md cursor-pointer text-4xl text-gray-200 duration-500 group-hover:text-red-600">
+                <h1 className="transition-color z-10 -mt-5 ml-10 max-w-md cursor-pointer text-3xl text-gray-200 duration-500 group-hover:text-red-600 md:ml-0 md:text-4xl">
                   {products?.[4]?.title}
                 </h1>
                 {products?.[4]?.featuredImage?.url ? (
@@ -419,14 +436,14 @@ export const PageContent = (props) => {
               </div>
             </Link>
           </div>
-          <div className="invisible ml-48 mt-20 flex flex-col" ref={ref12}>
+          <div className="invisible mt-20 flex flex-col md:ml-48" ref={ref12}>
             <Link
               key={`${products?.[14]?.handle}`}
               href={`/product/${products?.[14]?.handle}`}
               className="group"
             >
               <div className="flex flex-col">
-                <h1 className="transition-color z-10 -mt-5 max-w-md cursor-pointer text-4xl text-gray-200 duration-500 group-hover:text-red-600">
+                <h1 className="transition-color z-10 -mt-5 ml-10 max-w-md cursor-pointer text-3xl text-gray-200 duration-500 group-hover:text-red-600 md:ml-0 md:text-4xl">
                   {products?.[14]?.title}
                 </h1>
                 {products?.[14]?.featuredImage?.url ? (
@@ -449,12 +466,12 @@ export const PageContent = (props) => {
         </div>
         <div className="mt-36 max-w-5xl" style={{ borderBottom: '1px solid white' }}></div>
         <div>
-          <h1 className="text-semibold text-[200px] text-white">ALPINE</h1>
+          <h1 className="text-semibold text-7xl text-white md:text-[200px]">ALPINE</h1>
         </div>
-        <div className="mb-20 mt-5 flex">
+        <div className="mb-20 mt-20  flex flex-col md:mt-5 md:flex-row">
           <div className="mr-36 flex flex-col justify-between">
             <div>
-              <h2 className="text-lg text-white">WE'D LOVE TO HEAR FROM YOU</h2>
+              <h2 className="text-md text-white md:text-lg">WE'D LOVE TO HEAR FROM YOU</h2>
             </div>
             <div>
               <div className="flex">

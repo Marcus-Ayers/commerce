@@ -66,7 +66,7 @@ const SnowboardFlip = ({ position, model, rotationn }) => {
 
 const Page2 = () => {
   return (
-    <div className="h-[500px] overflow-hidden" style={{ height: '500px', marginLeft: '-150px' }}>
+    <div className="h-[150px] overflow-hidden md:-ml-[150px] md:h-[500px]">
       <Canvas style={{ background: 'transparent' }}>
         <SnowboardFlip
           model="/models/snowboardDraco.glb"

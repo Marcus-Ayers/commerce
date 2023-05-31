@@ -59,6 +59,27 @@ const Model = () => {
   const lightRef = useRef();
   const targetRef = useRef();
 
+  const [position, setPosition] = useState([0.2, -0.5, -1.5]);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 768) {
+        // Equivalent to tailwind's 'md'
+        setPosition([0.2, -0.5, -1.5]);
+      } else {
+        setPosition([-1.2, -0.5, -1.0]);
+      }
+    };
+
+    // Call once to set initial position
+    handleResize();
+
+    window.addEventListener('resize', handleResize);
+
+    // Cleanup on unmount
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   useFrame(() => {
     if (lightRef.current && targetRef.current) {
       lightRef.current.target = targetRef.current;
@@ -67,7 +88,7 @@ const Model = () => {
   const model = useGLTF('/models/snowboardImage2.glb');
   // const model = useGLTF("/models/snowboardDraco.glb");
   return (
-    <mesh ref={targetRef} position={[0.2, -0.5, -1.5]} rotation={[-0.2, 1.2, 0.2]}>
+    <mesh ref={targetRef} position={position} rotation={[-0.2, 1.2, 0.2]}>
       <primitive object={model.scene} dispose={null} />
       <spotLight ref={lightRef} position={[1, 8, 3]} intensity={0.6} />
     </mesh>

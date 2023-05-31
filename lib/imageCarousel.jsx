@@ -83,7 +83,7 @@ const EmblaCarousel = (props) => {
                   }}
                 >
                   <Link href={`/product/${products?.[index]?.handle}`} className="group max-w-5xl">
-                    <div className="ml-36 mt-20 flex flex-col">
+                    <div className="ml-10 mt-20 flex flex-col md:ml-36">
                       <p className="text-white">
                         {new Date(products?.[index]?.updatedAt).toLocaleDateString('en-US', {
                           year: 'numeric',
@@ -91,7 +91,7 @@ const EmblaCarousel = (props) => {
                           day: '2-digit'
                         })}
                       </p>
-                      <h1 className="transition-color mt-5 max-w-2xl cursor-pointer text-6xl font-semibold text-white duration-300 group-hover:text-red-500">
+                      <h1 className="transition-color mt-5 max-w-2xl cursor-pointer text-3xl font-semibold text-white duration-300 group-hover:text-red-500 md:text-6xl">
                         {products?.[index]?.title}
                       </h1>
                       <Image
