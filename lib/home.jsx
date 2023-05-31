@@ -1,12 +1,5 @@
 'use client';
-import {
-  OrbitControls,
-  ScrollControls,
-  useGLTF,
-  useHelper,
-  useScroll,
-  useTexture
-} from '@react-three/drei';
+import { ScrollControls, useGLTF, useHelper, useScroll, useTexture } from '@react-three/drei';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { useEffect, useRef, useState } from 'react';
 import * as THREE from 'three';
@@ -162,7 +155,7 @@ const Square = () => {
       <mesh>
         <spotLight position={[10, 9, 0]} intensity={0.08} />
         <ambientLight intensity={0.03} />
-        <OrbitControls enableZoom={false} />
+        {/* <OrbitControls enableZoom={false} /> */}
         <Model />
         <Mountains />
         <Plane />

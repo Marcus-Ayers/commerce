@@ -109,7 +109,7 @@ export const PageContent = (props) => {
   }, []);
 
   return (
-    <Html className="left-[-140px] w-screen md:left-[-600px] md:top-[-300px]">
+    <Html className="left-[-140px] top-[-200px] w-screen md:left-[-600px] md:top-[-300px]">
       <div className="flex max-w-7xl flex-col">
         <div className="w-full ">
           <h1
