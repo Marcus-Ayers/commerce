@@ -34,7 +34,7 @@ export function VariantSelector({
   const hasNoOptionsOrJustOneOption =
     !options.length || (options.length === 1 && options[0]?.values.length === 1);
   if (hasNoOptionsOrJustOneOption) {
-    console.log(product);
+    // console.log(product);
     return (
       <div>
         <h3

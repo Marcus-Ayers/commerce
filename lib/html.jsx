@@ -336,9 +336,9 @@ export const PageContent = (props) => {
                   src="/images/snowboarder.jpeg"
                   width={450}
                   height={450}
-                  className="group"
+                  className="group z-10"
                 ></Image>
-                <h1 className="z-20 -mt-5 text-4xl text-gray-300 duration-500 group-hover:text-red-600 md:text-5xl">
+                <h1 className="z-50 -mt-5 text-4xl text-gray-300 duration-500 group-hover:text-red-600 md:text-5xl">
                   HYDROGEN
                 </h1>
               </Link>
