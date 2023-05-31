@@ -105,7 +105,7 @@ export const PageContent = (props) => {
         ease: 'power2.out',
         stagger: 0.3
       });
-    }, 500);
+    }, 800);
   }, []);
 
   return (
@@ -336,9 +336,15 @@ export const PageContent = (props) => {
                   src="/images/snowboarder.jpeg"
                   width={450}
                   height={450}
-                  className="group z-10"
+                  className="group "
                 ></Image>
-                <h1 className="z-50 -mt-5 text-4xl text-gray-300 duration-500 group-hover:text-red-600 md:text-5xl">
+              </Link>
+              <Link
+                key={`${products?.[4].handle}`}
+                href={`/search/hydrogen`}
+                className="group z-50"
+              >
+                <h1 className=" -mt-5 text-4xl text-gray-300 duration-500 group-hover:text-red-600 md:text-5xl">
                   HYDROGEN
                 </h1>
               </Link>
@@ -358,39 +364,43 @@ export const PageContent = (props) => {
               </p>
             </div>
           </div>
-          <div className="invisible mr-[5rem] mt-20 flex flex-col  md:mr-36" ref={ref8}>
+          <div className="group invisible mr-[5rem] mt-20 flex flex-col md:mr-36" ref={ref8}>
             <Link
               key={`${products?.[3].handle}`}
               href={`/search/automated-collection`}
               className="group"
             >
-              <div className="flex flex-col">
-                <Image
-                  alt="white"
-                  src="/images/mountain.jpeg"
-                  width={450}
-                  height={450}
-                  className="group"
-                ></Image>
-                <h1 className="-mt-5 max-w-sm text-4xl text-gray-200 duration-500 group-hover:text-red-600 md:text-5xl">
-                  AUTOMATED COLLECTION
-                </h1>
-              </div>
-              <div className="max-w-sm">
-                <p className="md:text-md mt-10 text-sm text-gray-200">
-                  The Automated Collection represents the{' '}
-                  <span
-                    className="text-md text-white md:text-lg"
-                    style={{ borderBottom: '1px solid red' }}
-                  >
-                    SPIRIT OF ADVENTURE{' '}
-                  </span>
-                  and the thrill of conquering the majestic alpine peaks. These snowboards are
-                  specially crafted for riders who crave adrenaline and seek the ultimate
-                  performance on challenging terrains.
-                </p>
-              </div>
+              <Image
+                alt="white"
+                src="/images/mountain.jpeg"
+                width={450}
+                height={450}
+                className="group"
+              ></Image>
             </Link>
+            <Link
+              key={`${products?.[3].handle}`}
+              href={`/search/automated-collection`}
+              className="group z-50"
+            >
+              <h1 className="-mt-5 max-w-sm text-4xl text-gray-200 duration-500 group-hover:text-red-600 md:text-5xl">
+                AUTOMATED COLLECTION
+              </h1>
+            </Link>
+            <div className="max-w-sm">
+              <p className="md:text-md mt-10 text-sm text-gray-200">
+                The Automated Collection represents the{' '}
+                <span
+                  className="text-md text-white md:text-lg"
+                  style={{ borderBottom: '1px solid red' }}
+                >
+                  SPIRIT OF ADVENTURE{' '}
+                </span>
+                and the thrill of conquering the majestic alpine peaks. These snowboards are
+                specially crafted for riders who crave adrenaline and seek the ultimate performance
+                on challenging terrains.
+              </p>
+            </div>
           </div>
         </div>
         <div className="flex-flex-col">
