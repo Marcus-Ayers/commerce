@@ -29,6 +29,15 @@ const EmblaCarousel = (props) => {
   const [emblaRef, emblaApi] = useEmblaCarousel(options);
   const [tweenValues, setTweenValues] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [imageSize, setImageSize] = useState({ width: 400, height: 400 });
+
+  useEffect(() => {
+    // Check if we are on a mobile device
+    if (window.innerWidth <= 768) {
+      // If so, set the image dimensions to 200x200
+      setImageSize({ width: 200, height: 200 });
+    }
+  }, []);
 
   const onScroll = useCallback(() => {
     if (!emblaApi) return;
@@ -91,15 +100,15 @@ const EmblaCarousel = (props) => {
                           day: '2-digit'
                         })}
                       </p>
-                      <h1 className="transition-color mt-5 max-w-2xl cursor-pointer text-3xl font-semibold text-white duration-300 group-hover:text-red-500 md:text-6xl">
+                      <h1 className="transition-color mt-5 max-w-2xl cursor-pointer text-xl font-semibold text-white duration-300 group-hover:text-red-500 md:text-6xl">
                         {products?.[index]?.title}
                       </h1>
                       <Image
                         alt="marble"
-                        className="ml-48"
+                        className="ml-5"
                         src={products?.[index]?.featuredImage?.url}
-                        width={400}
-                        height={400}
+                        width={imageSize.width}
+                        height={imageSize.height}
                       ></Image>
                     </div>
                   </Link>

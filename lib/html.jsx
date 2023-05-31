@@ -109,7 +109,7 @@ export const PageContent = (props) => {
   }, []);
 
   return (
-    <Html className="left-[-140px] top-[-200px] w-screen md:left-[-600px] md:top-[-300px]">
+    <Html className="left-[-170px] top-[-200px] w-screen md:left-[-600px] md:top-[-300px]">
       <div className="flex max-w-7xl flex-col">
         <div className="w-full ">
           <h1
@@ -182,7 +182,7 @@ export const PageContent = (props) => {
           </div>
         </div>
         <div ref={ref3} className="invisible">
-          <h2 className="mt-10 text-5xl text-white md:text-7xl">
+          <h2 className="mt-10 text-4xl text-white md:text-7xl">
             UNIQUE <br /> CUSTOM STYLE
           </h2>
         </div>
@@ -251,7 +251,7 @@ export const PageContent = (props) => {
             </p>
           </div>
           <div>
-            <h1 className="-ml-5 text-2xl text-white md:mr-0 md:text-6xl">
+            <h1 className=" text-2xl text-white md:mr-0 md:text-6xl">
               100+ 5 STAR REVIEWS <br /> THAT PROVE WE’RE <br /> ALL ABOUT MAKING <br />
               <span className="flex">
                 <Player
@@ -338,12 +338,12 @@ export const PageContent = (props) => {
                   height={450}
                   className="group"
                 ></Image>
-                <h1 className="-mt-5 text-4xl text-gray-300 duration-500 group-hover:text-red-600 md:text-5xl">
+                <h1 className="z-20 -mt-5 text-4xl text-gray-300 duration-500 group-hover:text-red-600 md:text-5xl">
                   HYDROGEN
                 </h1>
               </Link>
             </div>
-            <div className="-ml-5 max-w-xs md:ml-0 md:max-w-md">
+            <div className=" max-w-xs md:ml-0 md:max-w-md">
               <p className="md:text-md mt-10 text-sm text-gray-200 md:mt-20">
                 The Hydrogen collection is an embodiment of{' '}
                 <span
