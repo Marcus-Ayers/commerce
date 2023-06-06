@@ -8,10 +8,10 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Suspense, useEffect, useRef, useState } from 'react';
-import Page2 from '../lib/card';
-import { CarouselNew } from '../lib/carouselNew';
-import EmblaCarousel from '../lib/imageCarousel';
-import { useScrollAnimation, useScrollAnimationTwo } from './Animations';
+import { CarouselNew } from '../lib/carousel';
+import Page2 from '../lib/flip-models';
+import EmblaCarousel from '../lib/image-carousel';
+import { useScrollAnimation, useScrollAnimationTwo } from './gsap-animations';
 
 gsap.registerPlugin(ScrollTrigger);
 

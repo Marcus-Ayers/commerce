@@ -4,7 +4,7 @@ import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { useEffect, useRef, useState } from 'react';
 import * as THREE from 'three';
 import { Color, DirectionalLightHelper } from 'three';
-import { PageContent } from '../lib/html';
+import { PageContent } from './html';
 
 const Plane = () => {
   // const [products, setProducts] = useState(null);
@@ -64,12 +64,10 @@ const Model = () => {
       }
     };
 
-    // Call once to set initial position
     handleResize();
 
     window.addEventListener('resize', handleResize);
 
-    // Cleanup on unmount
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
@@ -103,18 +101,17 @@ const Square = () => {
   const { camera } = useThree();
   const scroll = useScroll();
 
-  const [cameraPosition, setCameraPosition] = useState({
+  const [cameraPosition] = useState({
     x: camera.position.x,
     y: camera.position.y,
     z: camera.position.z
   });
-  const [cameraRotation, setCameraRotation] = useState({
+  const [cameraRotation] = useState({
     x: camera.rotation.x,
     y: camera.rotation.y,
     z: camera.rotation.z
   });
 
-  // define mouse state
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
@@ -125,7 +122,7 @@ const Square = () => {
     window.addEventListener('mousemove', updateMousePosition);
 
     return () => window.removeEventListener('mousemove', updateMousePosition);
-  }, []); // Empty array ensures that effect is only run on mount and unmount
+  }, []);
 
   useFrame(() => {
     camera.position.set(cameraPosition.x, cameraPosition.y, cameraPosition.z);
@@ -144,7 +141,7 @@ const Square = () => {
       camera.updateProjectionMatrix();
 
       // Add some rotation based on mouse position
-      const mouseLookSpeed = 0.0001; // Adjust this to change the sensitivity
+      // const mouseLookSpeed = 0.0001; // Adjust this to change the sensitivity
       // camera.rotation.y += (window.innerWidth / 2 - mousePosition.y) * mouseLookSpeed;
       // camera.position.z += (window.innerHeight / 2 - mousePosition.x) * mouseLookSpeed;
     }

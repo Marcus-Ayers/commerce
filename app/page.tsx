@@ -1,4 +1,4 @@
-import HomePageThree from 'lib/home';
+import HomePageThree from 'lib/home-page';
 //The 'edge' runtime in Vercel represents a Serverless Function that is executed
 // at the Edge network, meaning it's closer to the user and therefore has reduced latency.
 // export const runtime = 'edge';
