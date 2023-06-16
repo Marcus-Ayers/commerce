@@ -1,4 +1,4 @@
-import { getCollectionProducts, getProducts } from 'lib/shopify';
+import { getCollectionProducts } from 'lib/shopify';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -8,7 +8,7 @@ export async function Carousel() {
   if (!products?.length) return null;
 
   return (
-    <div className="relative w-full overflow-hidden bg-black dark:bg-white">
+    <div className="relative w-full overflow-hidden bg-white dark:bg-white">
       <div className="flex animate-carousel">
         {[...products, ...products].map((product, i) => (
           <Link

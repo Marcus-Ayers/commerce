@@ -154,7 +154,7 @@ const Square = () => {
         <ambientLight intensity={0.03} />
         {/* <OrbitControls enableZoom={false} /> */}
         <Model />
-        <Mountains />
+        {/* <Mountains /> */}
         <Plane />
       </mesh>
     </>
