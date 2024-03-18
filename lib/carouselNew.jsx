@@ -67,7 +67,7 @@ export function CarouselNew() {
               />
             ) : null}
             <div className="absolute inset-y-0 right-0 flex items-center justify-center">
-              <div className="inline-flex bg-gray-100 p-4 text-xs font-semibold text-black dark:bg-black dark:text-white md:text-xl">
+              <div className="inline-flex bg-black p-4 text-xs font-semibold text-black dark:bg-black dark:text-white md:text-xl">
                 {product.title}
               </div>
             </div>
